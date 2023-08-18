@@ -1,7 +1,8 @@
 import { useState } from "react";
 
 function Login () {
-    
+
+    const authServerEndpoint = 'http://127.0.0.1:8000/';    
     const [email,setEmail] = useState(null);
     const [password, setPassword] = useState(null);
 
@@ -15,6 +16,27 @@ function Login () {
     }
 
     const handleSubmit = (event) => {
+        
+        console.log("Handle submit function");
+        const requestData = {
+            "email" : email,
+            "password": password
+        } 
+        
+        const response = fetch(authServerEndpoint + 'auth/login/', {
+            method: "POST", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            credentials: 'include',
+            headers: {
+            "Content-Type": "application/json",
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify(requestData), // body data type must match "Content-Type" header
+        });
+
+        console.log("Response for login request!!");
+        console.log(response);
+    
         event.preventDefault();
     }
 

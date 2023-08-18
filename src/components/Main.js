@@ -15,9 +15,13 @@ function Main () {
     useEffect(() => {
         const fetchUser = async () => {
             try{
-                const response =  await fetch(authServerEndpoint + 'auth/user/');
+                const response =  await fetch(authServerEndpoint + 'auth/user/',{
+                    mode: "cors", // no-cors, *cors, same-origin
+                    credentials: 'include', 
+                });
                 if(response.status == 200 || response.status == 201){
-                    setUser(response);
+                    let responseData = await response.json();
+                    setUser(responseData);
                 }
                     
             }
@@ -27,8 +31,12 @@ function Main () {
             }
         }
 
+        fetchUser();
+
         
     },[])
+    
+    console.log("username: " + user.username);
     
     if(requestFailed){
         return <ServerDown/>
