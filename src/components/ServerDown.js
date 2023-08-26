@@ -2,7 +2,7 @@
 function ServerDown() {
     return (
         <div>
-            Server is down .....
+            Server is down
         </div>
     )
 }

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import Login from './Login';
-import ServerDown from './ServerDown';
+
 
 function Main () {
 
@@ -32,26 +31,27 @@ function Main () {
         }
 
         fetchUser();
-
-        
     },[])
-    
-    console.log("username: " + user.username);
-    
-    if(requestFailed){
-        return <ServerDown/>
-    }
+   
 
-    if(user == null)
+    if(requestFailed)
     {
-        return <Login/>
+        //Redirect to "System is down for maintainance page"
+        window.location.replace(window.location.protocol + "//" + window.location.host + "/down-for-maintainance");
     }
-
-    return (
-        <div>
-            Main
-        </div>
-    )
+    else if(user == null)
+    {
+        //Redirect to login page
+        window.location.replace(window.location.protocol + "//" + window.location.host + "/login");
+    }
+    else
+    { 
+        return (
+            <div>
+            Main 
+            </div>
+        )
+    }
 }
 
 export default Main;
