@@ -5,6 +5,7 @@ import EnterOTP from "./EnterOTP";
 function InputPhone(){
     const [phoneNumber,setPhoneNumber] = useState(null);
     const backendServerEndpoint = 'http://127.0.0.1:8000';
+    const [otpSent,setOtpSent] = useState(false);
 
     const navigate = useNavigate();
 
@@ -35,11 +36,7 @@ function InputPhone(){
             console.log(response);
             if(response.status === 200){
                 console.log("Response status is 200 [Enter phone number component]")
-                return (
-                    <div>
-                        <EnterOTP phoneNumber={phoneNumber}/>
-                    </div>
-                )
+                setOtpSent(true);
             }
            } 
         )
@@ -52,6 +49,22 @@ function InputPhone(){
         
         event.preventDefault();
     }
+
+    return (
+        <div>
+            {!otpSent && 
+            <div>
+                <form onSubmit={handleSubmit}>
+                    <label>Enter phone number</label><br/>
+                    <input type="tel" id="phone" required onChange={handleInput}></input>
+                    <input type="submit"></input>
+                </form>    
+            </div>}
+            {otpSent && <EnterOTP phoneNumber={phoneNumber}/>}
+        </div>
+    )
+
+    /*
     return(
         <div>
             <form onSubmit={handleSubmit}>
@@ -61,6 +74,7 @@ function InputPhone(){
             </form>
         </div>
     );
+    */
 }
 
 export default InputPhone;

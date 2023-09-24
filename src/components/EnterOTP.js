@@ -5,6 +5,7 @@ import Home from "./Home";
 function EnterOTP(props) {
     const backendServerEndpoint = 'http://127.0.0.1:8000';
     const [otp,setOtp] = useState(null);
+    const [userProfile,setUserProfile] = useState(null)
 
     const phoneNumber = props.phoneNumber;
 
@@ -30,13 +31,13 @@ function EnterOTP(props) {
         })
         .then(
            response => {
-            console.log(response);
             if(response.status === 200){
-                return (
-                    <div>
-                        <Home/>
-                    </div>
-                )
+                console.log("Got 200 response from verify otp endpoint!!!")
+               response.json()
+               .then(userProfileData => {
+                    console.log(userProfileData);
+                    setUserProfile(userProfileData);
+               }) 
             }
            } 
         )
@@ -51,7 +52,7 @@ function EnterOTP(props) {
 
 
     }
-
+    console.log("User profile: " + userProfile);
     return(
         <div>
             <form onSubmit={handleSubmit}>
