@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/enterotp" element={<EnterOTP/>} />
-        <Route path="login" element={<DummyLogin />} />
+        <Route path="login" element={<InputPhone />} />
         <Route path="register" element={<Register />} />
         <Route path="/down-for-maintainance" element={<ServerDown/>}/>
         <Route path="*" element={<NotFound />} />
