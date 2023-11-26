@@ -10,7 +10,7 @@ function Main () {
     const debugPrefix = "MAIN:::::";
     const navigate = useNavigate();
 
-    const userProfile = useRef(null);
+    const [userProfile,setUserProfile] = useState(null);
 
 
     //Check if a sesion exists or not
@@ -32,8 +32,8 @@ function Main () {
                         response.json()
                         .then(
                             userProfileData => {
-                                console.log(debugPrefix + "User Profile: " + userProfile);
-                                userProfile.current = userProfileData;
+                                setUserProfile(userProfileData);
+                                console.log(debugPrefix + userProfile);
                             }
                         )
                     }
@@ -54,14 +54,25 @@ function Main () {
         fetchUser();
 
     },[])
-   
-    return (
-
+    
+    if(userProfile){
+        return (
             <div>
-                <div>
-                </div>
-             </div>
+                <p> {userProfile.username}</p>
+                <p> {userProfile.bio } </p>
+                <p> { userProfile.phone} </p>
+            </div>
         )
+    }
+    else{
+        return (
+            
+            <div>
+                <p>Loading...</p>
+            </div>
+            
+        )
+    }
 }
 
 export default Main;

@@ -55,7 +55,6 @@ function DummyLogin() {
 
 
     }
-    console.log("User profile: " + userProfile);
     return(
         <div>
             <form onSubmit={handleSubmit}>
