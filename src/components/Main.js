@@ -1,49 +1,78 @@
-import { useEffect, useState } from 'react';
-import Login from './Login';
-import ServerDown from './ServerDown';
+import { useEffect, useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import DummyLogin from './DummyLogin';
+
 
 function Main () {
 
-
+    console.log("----MAIN-----")
     const authServerEndpoint = 'http://127.0.0.1:8000/';
+    const debugPrefix = "MAIN:::::";
+    const navigate = useNavigate();
 
-    const [user,setUser] = useState(null);
+    const [userProfile,setUserProfile] = useState(null);
 
-    let requestFailed = false;
 
     //Check if a sesion exists or not
     useEffect(() => {
         const fetchUser = async () => {
-            try{
-                const response =  await fetch(authServerEndpoint + 'auth/user/');
-                if(response.status == 200 || response.status == 201){
-                    setUser(response);
+            fetch(authServerEndpoint + 'auth/user/',{
+                method: "GET", // *GET, POST, PUT, DELETE, etc.
+                mode: "cors", // no-cors, *cors, same-origin
+                credentials: 'include',
+                headers: {
+                    "Content-Type": "application/json",
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                } 
+            })
+            .then(
+                response => {
+                    if(response.status == 200){
+                        console.log(debugPrefix + "Got 200 response code!!");
+                        response.json()
+                        .then(
+                            userProfileData => {
+                                setUserProfile(userProfileData);
+                                console.log(debugPrefix + userProfile);
+                            }
+                        )
+                    }
+                    else{
+                        console.log(debugPrefix + "response code is not 200!!");
+                        navigate('/login');
+                    }
                 }
-                    
-            }
-            catch(error){
-                console.log(error);
-                requestFailed = true;
-            }
-        }
+            )
+            .catch(
+                error => {
+                    console.log(debugPrefix + error);
+                    navigate('/login');
+                }
+            );
+        }   
 
-        
+        fetchUser();
+
     },[])
     
-    if(requestFailed){
-        return <ServerDown/>
+    if(userProfile){
+        return (
+            <div>
+                <p> {userProfile.username}</p>
+                <p> {userProfile.bio } </p>
+                <p> { userProfile.phone} </p>
+            </div>
+        )
     }
-
-    if(user == null)
-    {
-        return <Login/>
+    else{
+        return (
+            
+            <div>
+                <p>Loading...</p>
+            </div>
+            
+        )
     }
-
-    return (
-        <div>
-            Main
-        </div>
-    )
 }
 
 export default Main;
