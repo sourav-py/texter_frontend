@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DummyLogin from './DummyLogin';
+import Sidebar from './Sidebar';
 
 
 function Main () {
@@ -61,6 +62,7 @@ function Main () {
                 <p> {userProfile.username}</p>
                 <p> {userProfile.bio } </p>
                 <p> { userProfile.phone} </p>
+                <Sidebar userProfile={userProfile}/>
             </div>
         )
     }
