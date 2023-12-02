@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
-
+import ChatRoomsListItem from './ChatRoomsListItem';
+import '../static/css/main.css';
 
 function Sidebar ({userProfile}) {
 
@@ -55,7 +56,8 @@ function Sidebar ({userProfile}) {
                         response.json()
                         .then(
                             responseData => {
-                                setChatRoomsList(responseData);
+                                var responseDataJson = JSON.parse(responseData);
+                                setChatRoomsList(responseDataJson);
                                 console.log(debugPrefix + chatRoomsList);
                             }
                         )
@@ -72,12 +74,29 @@ function Sidebar ({userProfile}) {
         fetchChatRooms();
 
     },[])
-    
-   return (
-    <div>
-        {chatRoomsList}
-    </div>
-   ) 
+   
+   if(chatRoomsList == null){
+    return (
+        <div>
+            Loading....
+        </div>
+    )
+   }
+   else{
+    return (
+        <div class="sidebar">
+            <div class="user-info">
+                <div class="user-avatar">
+                    
+                </div>
+                <div class="user-phone-number">
+                </div>
+            </div>
+            <div class="chatrooms-list">
+            </div>
+        </div>
+    ) 
+            }
 }
 
 export default Sidebar;

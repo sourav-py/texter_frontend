@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import DummyLogin from './DummyLogin';
 import Sidebar from './Sidebar';
 
+import '../static/css/main.css';
+
 
 function Main () {
 
@@ -58,12 +60,11 @@ function Main () {
     
     if(userProfile){
         return (
-            <div>
-                <p> {userProfile.username}</p>
-                <p> {userProfile.bio } </p>
-                <p> { userProfile.phone} </p>
+           <div class="container">
                 <Sidebar userProfile={userProfile}/>
-            </div>
+                <div class="chatroom">
+                </div>
+            </div> 
         )
     }
     else{
