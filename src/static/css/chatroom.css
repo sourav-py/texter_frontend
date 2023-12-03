@@ -1,0 +1,19 @@
+.chatroom {
+    border: 2px solid blue;
+    display: grid;
+    height: 100%;
+    grid-template-rows: 8% 84% 8%;
+    padding: 1%;
+}
+
+.chatroom-info {
+    border: 2px solid red;
+}
+
+.messages-window {
+    border: 2px solid green;
+}
+
+.message-input-window{
+    border: 2px solid yellow;
+}
