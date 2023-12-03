@@ -86,13 +86,24 @@ function Sidebar ({userProfile}) {
     return (
         <div class="sidebar">
             <div class="user-info">
-                <div class="user-avatar">
+                <div class="user-self-avatar">
                     
                 </div>
-                <div class="user-phone-number">
+                <div class="user-self-phone-number">
                 </div>
             </div>
             <div class="chatrooms-list">
+                <div class="chatrooms-list-scroll-content">
+                {
+                    chatRoomsList.map((chatroom) => (
+                        <div>
+                            <ChatRoomsListItem chatRoom={chatroom}/> 
+                        </div>
+                    )
+
+                    )
+                }
+                </div>
             </div>
         </div>
     ) 

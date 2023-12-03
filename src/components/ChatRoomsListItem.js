@@ -9,7 +9,10 @@ function ChatRoomsListItem ({chatRoom}) {
    
    return (
         <div class="chatroom-list-item">
-            {chatRoom.id}
+            <div class="chatroom-list-item-avatar">
+            </div>
+            <div class="chatroom-list-item-name">
+            </div>
         </div>
    ) 
 }

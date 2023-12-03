@@ -4,6 +4,7 @@ import DummyLogin from './DummyLogin';
 import Sidebar from './Sidebar';
 
 import '../static/css/main.css';
+import ChatRoom from './ChatRoom';
 
 
 function Main () {
@@ -14,6 +15,7 @@ function Main () {
     const navigate = useNavigate();
 
     const [userProfile,setUserProfile] = useState(null);
+    const [currentChatRoomId,setCurrentChatRoomId] = useState(null);
 
 
     //Check if a sesion exists or not
@@ -62,8 +64,7 @@ function Main () {
         return (
            <div class="container">
                 <Sidebar userProfile={userProfile}/>
-                <div class="chatroom">
-                </div>
+                <ChatRoom chatRoomId = {currentChatRoomId} userId = {userProfile.id}/> 
             </div> 
         )
     }
