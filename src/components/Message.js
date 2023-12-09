@@ -3,7 +3,7 @@ function Message (props) {
 
     return (
         <div class="message">
-          <p>Message: {props.message} </p>
+          <p>senderId: {props.senderId} Message: {props.message} </p>
         </div>
     )
 }
