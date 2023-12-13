@@ -17,6 +17,8 @@ function Main () {
     const [userProfile,setUserProfile] = useState(null);
     const [currentChatRoomId,setCurrentChatRoomId] = useState(null);
 
+    console.log("Selected Chat Room Id: ",currentChatRoomId);
+
 
     //Check if a sesion exists or not
     useEffect(() => {
@@ -63,7 +65,7 @@ function Main () {
     if(userProfile){
         return (
            <div class="container">
-                <Sidebar userProfile={userProfile}/>
+                <Sidebar setCurrentChatRoomId = {setCurrentChatRoomId} userProfile={userProfile}/>
                 <ChatRoom chatRoomId = {currentChatRoomId} userId = {userProfile.id}/> 
             </div> 
         )

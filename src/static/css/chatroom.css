@@ -1,19 +1,21 @@
 .chatroom {
-    border: 2px solid blue;
+    border: 2px solid gray;
     display: grid;
     height: 100%;
     grid-template-rows: 8% 84% 8%;
     padding: 1%;
+    overflow: hidden;
 }
 
 .chatroom-info {
-    border: 2px solid red;
+    border: 1px solid gray;
 }
 
 .messages-window {
-    border: 2px solid green;
+    border: 1px solid gray;
+    overflow: scroll;
 }
 
 .message-input-window{
-    border: 2px solid yellow;
+    border: 1px solid gray;
 }
