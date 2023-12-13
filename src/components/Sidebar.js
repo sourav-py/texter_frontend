@@ -2,12 +2,17 @@ import { useEffect, useState, useRef } from 'react';
 import ChatRoomsListItem from './ChatRoomsListItem';
 import '../static/css/main.css';
 
-function Sidebar ({userProfile}) {
+function Sidebar (props) {
 
     const authServerEndpoint = 'http://127.0.0.1:8000/';
     const debugPrefix = "SIDEBAR:::::";
 
+    
+
     const [chatRoomsList,setChatRoomsList] = useState(null);
+    const [addContactModalDisplay,setAddContactModalDisplay] = useState("none");
+
+    console.log("show model or not!!!!!!",addContactModalDisplay);
 
 
 
@@ -17,7 +22,7 @@ function Sidebar ({userProfile}) {
         const fetchChatRooms = async () => {
 
             const requestData = {
-                'phoneNumber': userProfile.phone
+                'phoneNumber': props.userProfile.phone
             }
             
             function getCookie(name) {
@@ -74,6 +79,17 @@ function Sidebar ({userProfile}) {
         fetchChatRooms();
 
     },[])
+
+    const showAddContactModal = () => {
+        setAddContactModalDisplay("block");
+    }
+
+    const hideAddContactModal = () => {
+        console.log("Clicked here!!!");
+        setAddContactModalDisplay("none");
+    }
+
+    
    
    if(chatRoomsList == null){
     return (
@@ -96,15 +112,23 @@ function Sidebar ({userProfile}) {
                 <div class="chatrooms-list-scroll-content">
                 {
                     chatRoomsList.map((chatroom) => (
-                        <div>
-                            <ChatRoomsListItem chatRoom={chatroom}/> 
-                        </div>
+                            <ChatRoomsListItem setCurrentChatRoomId = {props.setCurrentChatRoomId} chatroom={chatroom}/>  
                     )
 
                     )
                 }
+                <button class="show-add-contact-modal" onClick={showAddContactModal}>Add Contact</button>
                 </div>
             </div>
+            <div className = {addContactModalDisplay === "block" ? "add-contact-modal" : "add-contact-modal-hidden"}>
+                <span class="close-add-contact-modal" onClick={hideAddContactModal}>&times;</span>
+                <form>
+                    <label>Enter phone number</label>
+                    <input type="tel" id="phone-input" placeholder='Enter phone number'></input>
+                    <input type="submit"/>
+                </form>
+            </div>
+            <div className={addContactModalDisplay === "block" ? "overlay" : "overlay-hidden"} onClick={hideAddContactModal}></div>
         </div>
     ) 
             }

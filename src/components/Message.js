@@ -1,9 +1,11 @@
 
+import '../static/css/message.css';
+
 function Message (props) {
 
     return (
-        <div class="message">
-          <p>senderId: {props.senderId} Message: {props.message} </p>
+        <div className={props.senderId == props.userId ? "message right" : "message left"}>
+          <p>{props.message} </p>
         </div>
     )
 }
