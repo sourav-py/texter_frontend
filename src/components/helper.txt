@@ -1,0 +1,2 @@
+Problem: WS client getting disconnected when server restarts
+Improvement: Empty result when no chatroom is selected

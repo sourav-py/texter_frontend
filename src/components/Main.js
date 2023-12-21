@@ -13,11 +13,16 @@ function Main () {
     const authServerEndpoint = 'http://127.0.0.1:8000/';
     const debugPrefix = "MAIN:::::";
     const navigate = useNavigate();
-
+    
     const [userProfile,setUserProfile] = useState(null);
     const [currentChatRoomId,setCurrentChatRoomId] = useState(null);
+    const [lastMessageTimestamp,setLastMessageTimestamp] = useState(null);
 
-    console.log("Selected Chat Room Id: ",currentChatRoomId);
+
+    const handleLastMessageTimestampUpdate = () => {
+        console.log("updating last message timestamp!!!!");
+        setLastMessageTimestamp(new Date());
+    }
 
 
     //Check if a sesion exists or not
@@ -65,8 +70,8 @@ function Main () {
     if(userProfile){
         return (
            <div class="container">
-                <Sidebar setCurrentChatRoomId = {setCurrentChatRoomId} userProfile={userProfile}/>
-                <ChatRoom chatRoomId = {currentChatRoomId} userId = {userProfile.id}/> 
+                <Sidebar setCurrentChatRoomId = {setCurrentChatRoomId} userProfile={userProfile} lastMessageTimeStamp = {lastMessageTimestamp}/>
+                <ChatRoom chatRoomId = {currentChatRoomId} userId = {userProfile.id} handleLastMessageTimestampUpdate = {handleLastMessageTimestampUpdate}/> 
             </div> 
         )
     }
