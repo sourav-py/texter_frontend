@@ -9,25 +9,21 @@ import '../static/css/chatroom.css';
 
 function ChatRoom (props) {
 
-  console.log("---------CHATROOM-----------");
+  console.log("-------CHATROOM---------");
 
   const userId = props.userId;
-  const chatRoomId = props.chatRoomId;
-
   const [chatLog,setChatLog] = useState([]);
   const authServerEndpoint = 'http://127.0.0.1:8000/';
-  const [socketUrl, setSocketUrl] = useState('ws://127.0.0.1:8000'
-                                        + '/ws/chat/'
-                                        + chatRoomId
-                                        + '/?userId'
-                                        + userId
-                                    );
-  
-                                    
+                                      
 
-  const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl);
+  const { sendMessage, lastMessage, readyState } = useWebSocket('ws://127.0.0.1:8000'
+                                        + '/ws/chat/'
+                                        + props.chatRoomId
+                                        + '/?userId'
+                                        + userId);
 
   useEffect(() => {
+       
       const fetchMessages = async () => {
             fetch(authServerEndpoint + 'chat/messages/',{
                 method: "POST", // *GET, POST, PUT, DELETE, etc.
@@ -38,7 +34,7 @@ function ChatRoom (props) {
                     // 'Content-Type': 'application/x-www-form-urlencoded',
                 },
                 body: JSON.stringify({
-                  "chatRoomId": chatRoomId
+                  "chatRoomId": props.chatRoomId
                 })
             })
             .then(
@@ -61,9 +57,11 @@ function ChatRoom (props) {
                 }
             );
          }
-
-         fetchMessages();
-  },[chatRoomId])
+        
+         if(props.chatRoomId){
+          fetchMessages();
+         }
+  },[props.chatRoomId])
 
   useEffect(() => {
     if (lastMessage !== null) {
@@ -76,6 +74,7 @@ function ChatRoom (props) {
 
         if(messageType !== "typing"){
           setChatLog(prevChatLog => [...prevChatLog,<Message key={prevChatLog.length} userId = {userId} senderId = {senderId} message={message}/>]);
+          props.handleLastMessageTimestampUpdate();
         }
         
     }
@@ -106,7 +105,7 @@ function ChatRoom (props) {
     <div class="chatroom">
 
             <div class="chatroom-info">
-                <p>Chat Room Number {chatRoomId}</p>
+                <p>Chat Room Number {props.chatRoomId}</p>
             </div>
 
             <div class="messages-window" id="chat-log">
