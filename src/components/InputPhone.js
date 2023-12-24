@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom";
 import EnterOTP from "./EnterOTP";
 
 function InputPhone(){
-    const [phoneNumber,setPhoneNumber] = useState(null);
-    const backendServerEndpoint = 'http://127.0.0.1:8000';
-    const [otpSent,setOtpSent] = useState(false);
 
+    const backendServerEndpoint = 'http://127.0.0.1:8000';
     const navigate = useNavigate();
+    const [phoneNumber,setPhoneNumber] = useState(null);
+    const [otpSent,setOtpSent] = useState(false);
+    const [newProfile,setNewProfile] = useState(false);
+
 
     const handleInput = (event) => {
         setPhoneNumber(event.target.value);
@@ -33,10 +35,18 @@ function InputPhone(){
         })
         .then(
            response => {
-            console.log(response);
             if(response.status === 200){
-                console.log("Response status is 200 [Enter phone number component]")
                 setOtpSent(true);
+                response.json()
+                .then(
+                    responseData => {
+                        console.log(responseData);
+                        if(responseData.newProfile){
+                            console.log("It is a new profile!!!");
+                            setNewProfile(true);
+                        }
+                    }
+                )
             }
            } 
         )
@@ -60,21 +70,9 @@ function InputPhone(){
                     <input type="submit"></input>
                 </form>    
             </div>}
-            {otpSent && <EnterOTP phoneNumber={phoneNumber}/>}
+            {otpSent && <EnterOTP phoneNumber={phoneNumber} newProfile = {newProfile}/>}
         </div>
     )
-
-    /*
-    return(
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label>Enter phone number</label><br/>
-                <input type="tel" id="phone" required onChange={handleInput}></input>
-                <input type="submit"></input>
-            </form>
-        </div>
-    );
-    */
 }
 
 export default InputPhone;

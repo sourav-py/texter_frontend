@@ -7,7 +7,6 @@ function Sidebar (props) {
 
     const authServerEndpoint = 'http://127.0.0.1:8000/';
     const debugPrefix = "------SIDEBAR-----";
-    const [lastMessageTimeStamp,setLastMessageTimestamp] = useState(props.lastMessageTimeStamp);
     const [chatRoomsList,setChatRoomsList] = useState(null);
     const [addContactModalDisplay,setAddContactModalDisplay] = useState("none");
 
@@ -115,7 +114,7 @@ function Sidebar (props) {
                 <button class="show-add-contact-modal" onClick={showAddContactModal}>Add Contact</button>
                 </div>
             </div>
-            <AddContact addContactModalDisplay = {addContactModalDisplay} showAddContactModal = {showAddContactModal} hideAddContactModal = {hideAddContactModal}/>
+            <AddContact currentUser = {props.userProfile} addContactModalDisplay = {addContactModalDisplay} showAddContactModal = {showAddContactModal} hideAddContactModal = {hideAddContactModal} setAddContactModalDisplay = {setAddContactModalDisplay} setLastMessageTimestamp = {props.setLastMessageTimestamp}/>
         </div>
     ) 
     }

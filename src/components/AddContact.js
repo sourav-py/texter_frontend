@@ -1,14 +1,94 @@
+import { useState } from "react";
+import Contact from "./Contact";
 
 function AddContact (props) {
-   
+
+    const authServerEndpoint = 'http://127.0.0.1:8000/';
+    const [phoneNumber,setPhoneNumber] = useState(null);
+    const [validPhoneNumber,setValidPhoneNumber] = useState(false);
+    const [profile,setProfile] = useState(null);
+    const [errorMsg,setErrorMsg] = useState(null);
+
+    const handlePhoneNumberInput = (e) => {
+        const requestData = {
+            'phoneNumber': e.target.value
+        }
+        fetch(authServerEndpoint + 'auth/fetchuser/',{
+            method: "POST",
+            mode: "cors",
+            credentials: "include",
+            headers: {
+                'Content-Type': "application/json"
+            },
+            body: JSON.stringify(requestData)
+        }).then(
+            response => {
+                console.log("Response status: ",response.status);
+                if(response.status == 200){
+                    response.json()
+                    .then(
+                        responseData => {
+                            console.log("Response data: ",responseData);
+                            setProfile(responseData);
+                        }
+                    )
+                }
+            }
+        )
+        .catch(
+            error => {
+                console.log()
+            }
+        )
+    }
+
+    const handleFormSubmission = (e) => {
+        e.preventDefault();
+        console.log("handling form submission!!!");
+        const requestData = {
+            'phoneNumbers': [props.currentUser.phone,profile.phone],
+            "mode": "DIRECT"
+        }
+        console.log("Request data: ",requestData);
+        fetch(authServerEndpoint + 'chat/participation/',{
+            method: "POST",
+            mode: "cors",
+            credentials: "include",
+            headers: {
+                'Content-Type': "application/json"
+            },
+            body: JSON.stringify(requestData)
+        }).then(
+            response => {
+                if(response.status == 200){
+                    props.setLastMessageTimestamp(new Date());
+                    props.setAddContactModalDisplay("none");
+                }
+                else{
+                    setErrorMsg("Failed to create chatroom!!");
+                }
+            }
+        )
+        .catch(
+            error => {
+                setErrorMsg(error);
+            }
+        )
+    }
+
     return (
         <div>
             <div className = {props.addContactModalDisplay === "block" ? "add-contact-modal" : "add-contact-modal-hidden"}>
                 <span class="close-add-contact-modal" onClick={props.hideAddContactModal}>&times;</span>
-                <form>
+                <form onSubmit={handleFormSubmission}>
                     <label>Enter phone number</label>
-                    <input type="tel" id="phone-input" placeholder='Enter phone number'></input>
-                    <input type="submit"/>
+                    <input type="tel" id="phone-input" value = {phoneNumber} onChange = {handlePhoneNumberInput} placeholder='Enter phone number'></input>
+                    <div className="contact-preview">
+                       {profile && <Contact profile={profile}/>} 
+                    </div>
+                    <div className="participation-creation-error">{errorMsg}</div>
+                    { !profile && <input type="submit" value="Chat" disabled/>}
+                    { profile && <input type="submit" value="Chat"/>}
                 </form>
             </div>
             <div className={props.addContactModalDisplay === "block" ? "overlay" : "overlay-hidden"} onClick={props.hideAddContactModal}></div>
