@@ -70,7 +70,7 @@ function Main () {
     if(userProfile){
         return (
            <div class="container">
-                <Sidebar setCurrentChatRoomId = {setCurrentChatRoomId} userProfile={userProfile} lastMessageTimeStamp = {lastMessageTimestamp}/>
+                <Sidebar setCurrentChatRoomId = {setCurrentChatRoomId} userProfile={userProfile} lastMessageTimeStamp = {lastMessageTimestamp} setLastMessageTimestamp = {setLastMessageTimestamp}/>
                 <ChatRoom chatRoomId = {currentChatRoomId} userId = {userProfile.id} handleLastMessageTimestampUpdate = {handleLastMessageTimestampUpdate}/> 
             </div> 
         )
