@@ -13,38 +13,18 @@ function Sidebar (props) {
 
     useEffect(() => {
 
-        const fetchChatRooms = async () => {
+        const fetchChatRooms = setInterval(() => {
 
             const requestData = {
                 'phoneNumber': props.userProfile.phone
             }
             
-            function getCookie(name) {
-                let cookieValue = null;
-                if (document.cookie && document.cookie !== '') {
-                    const cookies = document.cookie.split(';');
-                    for (let i = 0; i < cookies.length; i++) {
-                        const cookie = cookies[i].trim();
-                        // Does this cookie string begin with the name we want?
-                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                            break;
-                        }
-                    }
-                }
-                return cookieValue;
-            }
-
-            const csrfToken = getCookie('csrftoken');
-
             fetch(authServerEndpoint + 'chat/chatrooms/',{
                 method: "POST", // *GET, POST, PUT, DELETE, etc.
                 mode: "cors", // no-cors, *cors, same-origin
                 credentials: 'include',
                 headers: {
-                    "X-CSRFToken": csrfToken,
                     "Content-Type": "application/json",
-                    // 'Content-Type': 'application/x-www-form-urlencoded',
                 },
                 body: JSON.stringify(requestData) 
             })
@@ -68,11 +48,49 @@ function Sidebar (props) {
                     console.log(debugPrefix + error);
                 }
             );
-        }   
+        },5000);   
 
-        fetchChatRooms();
+        return () => clearInterval(fetchChatRooms);
 
-    },[props.lastMessageTimeStamp])
+    },[])
+
+
+    useEffect(() => {
+        const requestData = {
+                'phoneNumber': props.userProfile.phone
+            }
+            
+
+            fetch(authServerEndpoint + 'chat/chatrooms/',{
+                method: "POST", // *GET, POST, PUT, DELETE, etc.
+                mode: "cors", // no-cors, *cors, same-origin
+                credentials: 'include',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(requestData) 
+            })
+            .then(
+                response => {
+                    if(response.status == 200){
+                        console.log(debugPrefix + "Got 200 response code!!");
+                        response.json()
+                        .then(
+                            responseData => {
+                                var responseDataJson = JSON.parse(responseData);
+                                setChatRoomsList(responseDataJson);
+                                console.log(debugPrefix + chatRoomsList);
+                            }
+                        )
+                    }
+                }
+            )
+            .catch(
+                error => {
+                    console.log(debugPrefix + error);
+                }
+            );
+    },[props.setLastMessageTimestamp])
 
     const showAddContactModal = () => {
         setAddContactModalDisplay("block");
@@ -97,16 +115,18 @@ function Sidebar (props) {
         <div class="sidebar">
             <div class="user-info">
                 <div class="user-self-avatar">
-                    
+                    <img height = "30px" src={props.userProfile.avatar ? authServerEndpoint + props.userProfile.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
                 </div>
                 <div class="user-self-phone-number">
+                    <a>edit profile</a>
+                    <a>logout</a>
                 </div>
             </div>
             <div class="chatrooms-list">
                 <div class="chatrooms-list-scroll-content">
                 {
                     chatRoomsList.map((chatroom,index) => (
-                            <ChatRoomsListItem key = {index} setCurrentChatRoomId = {props.setCurrentChatRoomId} chatroom={chatroom}/>  
+                            <ChatRoomsListItem key = {index} setCurrentChatRoomId = {props.setCurrentChatRoomId} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom}/>  
                     )
 
                     )

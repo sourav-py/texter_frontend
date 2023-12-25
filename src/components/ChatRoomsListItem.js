@@ -10,6 +10,7 @@ function ChatRoomsListItem (props) {
     const handleChatRoomSelection = () => {
         console.log("Clicked a chatroom!!!");
         props.setCurrentChatRoomId(props.chatroom.id);
+        props.setCurrentChatRoom(props.chatroom);
     }
 
    

@@ -69,7 +69,7 @@ function UpdateProfile(props) {
         )
         .catch(
             error => {
-                setErrorMsg(error);
+                setErrorMsg("Unable to update data!!");
             }
         )
 
@@ -85,9 +85,8 @@ function UpdateProfile(props) {
                 <input type="text" onChange={handleNameChange} value={userName}/>
                 <label>bio</label>
                 <input type="text"  disabled = {false} onChange={handleBioChange} value={userBio}/>
-                <label>avatar</label>
-                <input type="file" onChange={handleAvatarChange}/>
                 <div className="form-submission-error">
+                    {errorMsg}
                 </div>
                 <input type="submit" value="Update"/>
             </form>
