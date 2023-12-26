@@ -1,37 +1,54 @@
 .chatroom {
-    border: 2px solid gray;
     display: grid;
     height: 100%;
-    grid-template-rows: 8% 84% 8%;
+    grid-template-rows: 10% 82% 8%;
     padding: 1%;
     overflow: hidden;
 }
 
 .chatroom-info {
-    border: 1px solid gray;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    width: 90%;
+    background-color: #40916C;
+    border: 1px solid #40916C;
+    border-radius: 10px;  
     display: grid;
     grid-template-columns: 10% 60% 20%;
 }
 
-.chatroom-name-wrapper {
-    border: 1px solid red;
-    display: grid;
-    padding: 0%;
+.chatroom-avatar-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.chatroom-avatar{
+    height: 35px;
+}
+
+.chatroom-name-wrapper {
+    display: grid;
+    margin-left: 2%;
+    padding: 1%;
+}
+
+
 .chatroom-name{
-    border: 1px solid gray;
 }
 
 .activity-status {
-    border: 1px solid gray;
 }
 
 .messages-window {
-    border: 1px solid gray;
     overflow: scroll;
 }
 
+.messages-window::-webkit-scrollbar {
+  position: relative;
+  display: none; 
+}
 .message-input-window{
     border: 1px solid gray;
 }

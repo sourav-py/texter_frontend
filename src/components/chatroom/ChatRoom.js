@@ -144,8 +144,9 @@ function ChatRoom (props) {
             <div class="chatroom-info">
                 {props.chatRoom &&
                     <>
-                      <img height = "40px" src={props.chatRoom.avatar ? authServerEndpoint + props.chatRoom.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
-
+                    <div className="chatroom-avatar-wrapper">
+                      <img className="chatroom-avatar" src={props.chatRoom.avatar ? authServerEndpoint + props.chatRoom.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
+                    </div>
                       <div className="chatroom-name-wrapper">
                         <div className="chatroom-name">{props.chatRoom.name}</div>
                         <div className="activity-status">{userActivityStatus}</div>

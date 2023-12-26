@@ -114,9 +114,7 @@ function Sidebar (props) {
     return (
         <div class="sidebar">
             <div class="user-info">
-                <div class="user-self-avatar">
-                    <img height = "30px" src={props.userProfile.avatar ? authServerEndpoint + props.userProfile.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
-                </div>
+                <img className = "user-self-avatar" src={props.userProfile.avatar ? authServerEndpoint + props.userProfile.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
                 <div class="user-options-wrapper">
                     <div>profile</div>
                     <div>logout</div>

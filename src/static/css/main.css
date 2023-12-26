@@ -1,5 +1,6 @@
 .container {
-  border: 3px solid grey;
+  border: 1px solid #081C15;
+  background-color: #081C15;
   height: 70vh;
   width: 65%;
   display: grid;
@@ -19,21 +20,23 @@
 }
 
 .user-info {
-  border: 2px solid black;
+  border: 1px solid #40916C;
+  border-radius: 10px;
+  background-color: #40916C;
+  color: white;
   display: grid;
   grid-template-columns: 20% 80%;
   align-items: center;
   gap: 4%;
-  padding: 2%;
+  padding: 0% 5%;
 }
 
+
 .user-self-avatar{
-  border: 1px solid grey;
-  overflow: hidden;
+  height: 30px;
 }
 
 .user-options-wrapper {
-  border: 1px solid red;
   display: grid;
   grid-template-columns: 50% 50%;
   align-items: center;
@@ -136,6 +139,7 @@
 
 .chatroom-list-item {
     border: 1px solid gray;
+    color: white;
     height: 3em;
     max-height: 3em;
     margin-bottom: 0.5em;

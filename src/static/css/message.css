@@ -10,11 +10,11 @@
 
 .message.left {
     float: left;
-    background-color: #e0e0e0;
+    background-color: #D8F3DC;
 }
 
 .message.right {
     float: right;
-    background-color: #4CAF50;
+    background-color: #52B788;
     color: white;
 }
