@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
-import '../static/css/main.css';
+import '../../static/css/main.css';
+
 
 function Contact (props) {
 

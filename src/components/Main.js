@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import DummyLogin from './DummyLogin';
-import Sidebar from './Sidebar';
+import DummyLogin from './login/DummyLogin';
+import Sidebar from './Sidebar/Sidebar';
 
 import '../static/css/main.css';
-import ChatRoom from './ChatRoom';
+import ChatRoom from './chatroom/ChatRoom';
 
 
 function Main () {
@@ -13,20 +13,78 @@ function Main () {
     const authServerEndpoint = 'http://127.0.0.1:8000/';
     const debugPrefix = "MAIN:::::";
     const navigate = useNavigate();
-    
+   
+    const [isTabFocused,setIsTabFocused] = useState(true);
     const [userProfile,setUserProfile] = useState(null);
     const [currentChatRoomId,setCurrentChatRoomId] = useState(null);
+    const [currentChatRoom,setCurrentChatRoom] = useState(null);
     const [lastMessageTimestamp,setLastMessageTimestamp] = useState(null);
 
 
     const handleLastMessageTimestampUpdate = () => {
-        console.log("updating last message timestamp!!!!");
         setLastMessageTimestamp(new Date());
     }
 
+    useEffect(() => {
+        const handleVisibilityChange = () => {
+            setIsTabFocused(!document.hidden);
+        };
+
+        // Add event listener for visibility change
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+
+        // Clean up the event listener on component unmount
+        return () => {
+            document.removeEventListener('visibilitychange', handleVisibilityChange);
+        };
+    }, []);
+
+
+    useEffect(() => {
+        // Make API calls only when the tab is focused and user is logged in
+        if (isTabFocused && userProfile) {
+            const interval = setInterval(() => {
+                const requestData = {
+                    'userId': userProfile.id
+                }
+                fetch(authServerEndpoint + 'auth/activitystatus/?action=update',{
+                method: "POST", // *GET, POST, PUT, DELETE, etc.
+                mode: "cors", // no-cors, *cors, same-origin
+                credentials: 'include',
+                headers: {
+                    "Content-Type": "application/json",
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: JSON.stringify(requestData) 
+            })
+            .then(
+                () => {
+                    console.log('USER STATUS API CALL MADE');
+                }
+            )
+            .catch(
+                (error) => {
+                    console.log(error);
+                }
+            );
+            }, 5000); // Adjust the interval as needed
+
+        // Clean up the interval on component unmount or when the tab loses focus
+        return () => clearInterval(interval);
+        }
+    }, [isTabFocused]);
 
     //Check if a sesion exists or not
     useEffect(() => {
+
+        const handleVisibilityChange = () => {
+            setIsTabFocused(!document.hidden);
+        };
+
+        // Add event listener for visibility change
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+        
+
         const fetchUser = async () => {
             fetch(authServerEndpoint + 'auth/user/',{
                 method: "GET", // *GET, POST, PUT, DELETE, etc.
@@ -65,13 +123,18 @@ function Main () {
 
         fetchUser();
 
+        // Clean up the event listener on component unmount
+        return () => {
+            document.removeEventListener('visibilitychange', handleVisibilityChange);
+        };
+
     },[])
     
     if(userProfile){
         return (
            <div class="container">
-                <Sidebar setCurrentChatRoomId = {setCurrentChatRoomId} userProfile={userProfile} lastMessageTimeStamp = {lastMessageTimestamp} setLastMessageTimestamp = {setLastMessageTimestamp}/>
-                <ChatRoom chatRoomId = {currentChatRoomId} userId = {userProfile.id} handleLastMessageTimestampUpdate = {handleLastMessageTimestampUpdate}/> 
+                <Sidebar setCurrentChatRoomId = {setCurrentChatRoomId} setCurrentChatRoom = {setCurrentChatRoom} userProfile={userProfile} lastMessageTimeStamp = {lastMessageTimestamp} setLastMessageTimestamp = {setLastMessageTimestamp}/>
+                <ChatRoom chatRoomId = {currentChatRoomId} chatRoom={currentChatRoom} userId = {userProfile.id} handleLastMessageTimestampUpdate = {handleLastMessageTimestampUpdate}/> 
             </div> 
         )
     }

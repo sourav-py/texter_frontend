@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import '../static/css/main.css';
+import '../../static/css/main.css';
 
 function ChatRoomsListItem (props) {
 
@@ -10,6 +10,7 @@ function ChatRoomsListItem (props) {
     const handleChatRoomSelection = () => {
         console.log("Clicked a chatroom!!!");
         props.setCurrentChatRoomId(props.chatroom.id);
+        props.setCurrentChatRoom(props.chatroom);
     }
 
    
