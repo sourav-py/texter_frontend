@@ -1,5 +1,5 @@
 
-import '../static/css/message.css';
+import '../../static/css/message.css';
 
 function Message (props) {
 

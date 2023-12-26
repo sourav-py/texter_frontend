@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import DummyLogin from './DummyLogin';
-import Sidebar from './Sidebar';
+import DummyLogin from './login/DummyLogin';
+import Sidebar from './Sidebar/Sidebar';
 
 import '../static/css/main.css';
-import ChatRoom from './ChatRoom';
+import ChatRoom from './chatroom/ChatRoom';
 
 
 function Main () {

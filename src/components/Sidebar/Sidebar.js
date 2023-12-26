@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import ChatRoomsListItem from './ChatRoomsListItem';
 import AddContact from './AddContact';
-import '../static/css/main.css';
+import '../../static/css/main.css';
 
 function Sidebar (props) {
 

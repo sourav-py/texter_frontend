@@ -3,8 +3,8 @@ import React, { useState , useEffect } from 'react';
 import useWebSocket, { ReadyState } from 'react-use-websocket';
 
 import Message from './Message';
-import '../static/css/main.css';
-import '../static/css/chatroom.css';
+import '../../static/css/main.css';
+import '../../static/css/chatroom.css';
 
 
 function ChatRoom (props) {

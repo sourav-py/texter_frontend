@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Main from "./Main";
-import Home from "./Home";
-import UpdateProfile from "./UpdateProfile";
+import Main from "../Main";
+import UpdateProfile from "../Sidebar/UpdateProfile";
 
 function EnterOTP(props) {
 
