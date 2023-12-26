@@ -12,31 +12,30 @@
 .sidebar {
   border: 2px solid grey;
   display: grid;
-  grid-template-rows: 15% 75%;
+  grid-template-rows: 10% 80%;
   gap: 2%;
   padding: 2%;
   overflow: hidden;
 }
 
 .user-info {
-  border: 1px solid grey;
+  border: 2px solid black;
   display: grid;
-  grid-template-columns: 30% 65%;
+  grid-template-columns: 20% 80%;
   align-items: center;
   gap: 4%;
-  padding: 4%;
+  padding: 2%;
 }
 
 .user-self-avatar{
   border: 1px solid grey;
-  height: 60%;
   overflow: hidden;
 }
 
-.user-self-phone-number {
-  border: 1px solid grey;
-  height: 50%;
+.user-options-wrapper {
+  border: 1px solid red;
   display: grid;
+  grid-template-columns: 50% 50%;
   align-items: center;
   overflow: hidden;
 }

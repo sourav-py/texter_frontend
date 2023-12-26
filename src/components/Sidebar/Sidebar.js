@@ -117,9 +117,9 @@ function Sidebar (props) {
                 <div class="user-self-avatar">
                     <img height = "30px" src={props.userProfile.avatar ? authServerEndpoint + props.userProfile.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
                 </div>
-                <div class="user-self-phone-number">
-                    <a>edit profile</a>
-                    <a>logout</a>
+                <div class="user-options-wrapper">
+                    <div>profile</div>
+                    <div>logout</div>
                 </div>
             </div>
             <div class="chatrooms-list">
