@@ -9,6 +9,22 @@
 
 .chatroom-info {
     border: 1px solid gray;
+    display: grid;
+    grid-template-columns: 10% 60% 20%;
+}
+
+.chatroom-name-wrapper {
+    border: 1px solid red;
+    display: grid;
+    padding: 0%;
+}
+
+.chatroom-name{
+    border: 1px solid gray;
+}
+
+.activity-status {
+    border: 1px solid gray;
 }
 
 .messages-window {

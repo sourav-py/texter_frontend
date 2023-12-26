@@ -145,10 +145,16 @@ function ChatRoom (props) {
                 {props.chatRoom &&
                     <>
                       <img height = "40px" src={props.chatRoom.avatar ? authServerEndpoint + props.chatRoom.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
-                      <p>{props.chatRoom.name}</p>
+
+                      <div className="chatroom-name-wrapper">
+                        <div className="chatroom-name">{props.chatRoom.name}</div>
+                        <div className="activity-status">{userActivityStatus}</div>
+                      </div>
+
+                      <div className="chatroom-options">
+                      </div>
                     </>
                 }
-                <p>{userActivityStatus}</p>
             </div>
 
             <div class="messages-window" id="chat-log">
