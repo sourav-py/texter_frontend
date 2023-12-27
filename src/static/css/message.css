@@ -11,10 +11,12 @@
 .message.left {
     float: left;
     background-color: #D8F3DC;
+    border-radius: 15px 15px 15px 0px;
 }
 
 .message.right {
     float: right;
     background-color: #52B788;
     color: white;
+    border-radius: 15px 15px 0px 15px;
 }

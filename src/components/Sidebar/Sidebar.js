@@ -124,11 +124,14 @@ function Sidebar (props) {
                 <div class="chatrooms-list-scroll-content">
                 {
                     chatRoomsList.map((chatroom,index) => (
-                            <ChatRoomsListItem key = {index} setCurrentChatRoomId = {props.setCurrentChatRoomId} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom}/>  
+                            <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>  
                     )
 
                     )
                 }
+                <span className="show-add-contact-modal-btn">
+                    <i class="fa fa-plus-circle"></i>
+                </span>
                 <button class="show-add-contact-modal" onClick={showAddContactModal}>Add Contact</button>
                 </div>
             </div>

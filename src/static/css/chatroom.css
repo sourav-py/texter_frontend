@@ -11,8 +11,8 @@
     margin-right: auto;
     color: white;
     width: 90%;
-    background-color: #40916C;
-    border: 1px solid #40916C;
+    background-color: #112a1f;
+    border: 1px solid #112a1f;
     border-radius: 10px;  
     display: grid;
     grid-template-columns: 10% 60% 20%;
@@ -49,6 +49,63 @@
   position: relative;
   display: none; 
 }
+
 .message-input-window{
-    border: 1px solid gray;
+    display: flex;
+    justify-content: space-around;
 }
+
+.message-input-wrapper {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.message-input{
+    width: 70%;
+    border: 3px solid #081C15;
+    border-radius: 10px;
+    padding: 2%;
+}
+
+.message-input:focus{
+    width: 70%;
+    border: 3px solid #40916C;
+    outline: none;
+    border-radius: 10px;
+    padding: 2%;
+}
+
+.send-message-btn{
+    width: 6em;
+    /*
+    border: 1px solid #2D6A4F;
+    background-color:#2D6A4F;
+    */
+
+    border: 2px solid rgb(27,67,50); 
+    background: rgb(27,67,50);
+    background: linear-gradient(90deg, rgba(27,67,50,1) 15%, rgba(45,106,79,1) 44%, rgba(64,145,108,1) 100%);
+    color: white;
+    border-radius: 15px;
+}
+
+.send-message-btn:hover {
+    width: 6em;
+    /*
+    border: 2px solid #40916C;
+    background-color:#2D6A4F;
+    */
+
+    border: 2px solid rgb(17,42,31); 
+    background: rgb(17,42,31);
+    background: linear-gradient(90deg, rgba(17,42,31,1) 18%, rgba(116,198,157,1) 100%);
+    color: white;
+    border-radius: 15px;
+}
+
+
+
+
+
+

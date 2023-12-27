@@ -33,11 +33,15 @@ function AddContact (props) {
                         }
                     )
                 }
+                else{
+                    setProfile(null);
+                }
             }
         )
         .catch(
             error => {
-                console.log()
+                console.log(error)
+                setProfile(null);
             }
         )
     }
