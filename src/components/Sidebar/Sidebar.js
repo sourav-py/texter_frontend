@@ -114,9 +114,7 @@ function Sidebar (props) {
     return (
         <div class="sidebar">
             <div class="user-info">
-                <div class="user-self-avatar">
-                    <img height = "30px" src={props.userProfile.avatar ? authServerEndpoint + props.userProfile.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
-                </div>
+                <img className = "user-self-avatar" src={props.userProfile.avatar ? authServerEndpoint + props.userProfile.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
                 <div class="user-options-wrapper">
                     <div>profile</div>
                     <div>logout</div>
@@ -126,11 +124,14 @@ function Sidebar (props) {
                 <div class="chatrooms-list-scroll-content">
                 {
                     chatRoomsList.map((chatroom,index) => (
-                            <ChatRoomsListItem key = {index} setCurrentChatRoomId = {props.setCurrentChatRoomId} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom}/>  
+                            <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>  
                     )
 
                     )
                 }
+                <span className="show-add-contact-modal-btn">
+                    <i class="fa fa-plus-circle"></i>
+                </span>
                 <button class="show-add-contact-modal" onClick={showAddContactModal}>Add Contact</button>
                 </div>
             </div>

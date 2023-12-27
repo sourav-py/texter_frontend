@@ -5,17 +5,27 @@ function ChatRoomsListItem (props) {
 
     const authServerEndpoint = 'http://127.0.0.1:8000';
     const debugPrefix = "CHATROOM_LIST_ITEM:::::";
+    const [className,setClassName] = useState("chatroom-list-item");
 
 
     const handleChatRoomSelection = () => {
         console.log("Clicked a chatroom!!!");
-        props.setCurrentChatRoomId(props.chatroom.id);
         props.setCurrentChatRoom(props.chatroom);
     }
 
+    useEffect(() => {
+        if(props.currentChatRoom){
+            if(props.currentChatRoom.id == props.chatroom.id){
+                setClassName("chatroom-list-item-selected");
+            }
+            else{
+                setClassName("chatroom-list-item");
+            }
+        }
+    },[props.currentChatRoom])
    
    return (
-        <div class="chatroom-list-item" onClick={handleChatRoomSelection}>
+        <div className={className} onClick={handleChatRoomSelection}>
             <div class="chatroom-list-item-avatar-wrapper">
                 <img class="chatroom-list-item-avatar" src={props.chatroom.avatar ? authServerEndpoint + props.chatroom.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
             </div>

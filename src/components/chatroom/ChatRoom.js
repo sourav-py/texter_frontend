@@ -19,7 +19,7 @@ function ChatRoom (props) {
 
   const { sendMessage, lastMessage, readyState } = useWebSocket('ws://127.0.0.1:8000'
                                         + '/ws/chat/'
-                                        + props.chatRoomId
+                                        + (props.chatRoom && props.chatRoom.id)
                                         + '/?userId'
                                         + userId);
 
@@ -35,7 +35,7 @@ function ChatRoom (props) {
                     // 'Content-Type': 'application/x-www-form-urlencoded',
                 },
                 body: JSON.stringify({
-                  "chatRoomId": props.chatRoomId
+                  "chatRoomId": props.chatRoom.id
                 })
             })
             .then(
@@ -60,10 +60,10 @@ function ChatRoom (props) {
          }
 
         
-        if(props.chatRoomId){
+        if(props.chatRoom){
           const interval = setInterval(() => {
               const requestData = {
-                  'chatroomId': props.chatRoomId,
+                  'chatroomId': props.chatRoom.id,
                   'userId': props.userId
               }
               fetch(authServerEndpoint + 'auth/activitystatus/?action=fetch',{
@@ -98,7 +98,7 @@ function ChatRoom (props) {
             return () => clearInterval(interval);
           }
 
-  },[props.chatRoomId])
+  },[props.chatRoom])
 
   useEffect(() => {
     if (lastMessage !== null) {
@@ -122,12 +122,14 @@ function ChatRoom (props) {
         e.preventDefault();
         const message = document.querySelector('#message').value;
 
-        sendMessage(JSON.stringify({
-                'userId': userId,
-                'messageType': "textMessage",
-                'message': message
-        }));
-        document.querySelector('#message').value = '';
+        if(message.length){
+          sendMessage(JSON.stringify({
+                  'userId': userId,
+                  'messageType': "textMessage",
+                  'message': message
+          }));
+          document.querySelector('#message').value = '';
+        }
   }
 
   const connectionStatus = {
@@ -144,8 +146,9 @@ function ChatRoom (props) {
             <div class="chatroom-info">
                 {props.chatRoom &&
                     <>
-                      <img height = "40px" src={props.chatRoom.avatar ? authServerEndpoint + props.chatRoom.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
-
+                    <div className="chatroom-avatar-wrapper">
+                      <img className="chatroom-avatar" src={props.chatRoom.avatar ? authServerEndpoint + props.chatRoom.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
+                    </div>
                       <div className="chatroom-name-wrapper">
                         <div className="chatroom-name">{props.chatRoom.name}</div>
                         <div className="activity-status">{userActivityStatus}</div>
@@ -166,9 +169,9 @@ function ChatRoom (props) {
             </div>
 
             <div class="message-input-window">
-                <form>
-                    <input id="message" type="text" placeholder='type your messsage'/>
-                    <input type="submit" onClick={handleMessageSubmit}></input>
+                <form className="message-input-wrapper">
+                  <input className="message-input" id="message" type="text" placeholder='type your messsage'/>
+                  <input className="send-message-btn" type="submit" value="Send" onClick={handleMessageSubmit}></input>
                 </form>
             </div>
 
