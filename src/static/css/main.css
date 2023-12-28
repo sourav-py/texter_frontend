@@ -15,7 +15,7 @@
   height: 80%;
   width: 65%;
   display: grid;
-  grid-template-columns: 25% 74%;
+  grid-template-columns: 28% 72%;
   padding: 1%;
   gap: 1%;
 }
@@ -23,7 +23,7 @@
 
 .sidebar {
   display: grid;
-  grid-template-rows: 10% 80%;
+  grid-template-rows: 10% 85%;
   gap: 2%;
   padding: 2%;
   overflow: hidden;
@@ -54,6 +54,8 @@
 }
 
 .chatrooms-list {
+  border-radius: 15px;
+  background-color: #CAD2C5;
   overflow: hidden;
   height: 100%;
   padding: 2%;
@@ -68,11 +70,7 @@
   box-sizing: content-box;
 }
 
-.show-add-contact-modal {
-  position:sticky;
-  bottom: 0;
-  float: right;
-}
+
 
 .add-contact-modal-hidden {
   display: none;
@@ -147,11 +145,12 @@
 
 
 .chatroom-list-item {
-    border: 1px solid #B7E4C7;
-    background-color: #B7E4C7;
+    background-color: #52796F;
+    border-bottom: 3px solid #52796F;
+    color: white;
     border-radius: 10px;
-    height: 3em;
-    max-height: 3em;
+    height: 3.5em;
+    max-height: 3.5em;
     margin-bottom: 0.5em;
     display: grid;
     grid-template-columns: 20% 80%;
@@ -160,12 +159,16 @@
 }
 
 .chatroom-list-item-selected {
-    border: 1px solid #40916C;
-    background-color: #40916C;
+  /*
+    border-right: 3px solid #40916C;
+    border-left: 3px solid #40916C; 
+    */
+    border-bottom: 3px solid #081C15;
+    background-color: #52796F;
     color: white;
     border-radius: 10px;
-    height: 3em;
-    max-height: 3em;
+    height: 3.5em;
+    max-height: 3.5em;
     margin-bottom: 0.5em;
     display: grid;
     grid-template-columns: 20% 80%;

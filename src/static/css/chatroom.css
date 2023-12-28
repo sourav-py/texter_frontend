@@ -1,7 +1,7 @@
 .chatroom {
     display: grid;
     height: 100%;
-    grid-template-rows: 10% 82% 8%;
+    grid-template-rows: 9% 82% 8%;
     padding: 1%;
     overflow: hidden;
 }
@@ -97,9 +97,9 @@
     background-color:#2D6A4F;
     */
 
-    border: 2px solid rgb(17,42,31); 
-    background: rgb(17,42,31);
-    background: linear-gradient(90deg, rgba(17,42,31,1) 18%, rgba(116,198,157,1) 100%);
+    border: 2px solid #40916C; 
+    background: rgb(27,67,50);
+    background: linear-gradient(90deg, rgba(27,67,50,1) 15%, rgba(45,106,79,1) 44%, rgba(64,145,108,1) 100%);
     color: white;
     border-radius: 15px;
 }

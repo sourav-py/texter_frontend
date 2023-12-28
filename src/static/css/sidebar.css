@@ -1,0 +1,18 @@
+
+.show-add-contact-modal {
+  position:sticky;
+  bottom: 0;
+  float: right;
+  color: #2D6A4F;
+  font-size: 2em;
+  margin: 2%;
+}
+
+.show-add-contact-modal:hover {
+  position:sticky;
+  bottom: 0;
+  float: right;
+  color: #52B788;
+  font-size: 2em;
+  margin: 2%;
+}
