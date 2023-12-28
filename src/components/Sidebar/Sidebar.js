@@ -128,7 +128,7 @@ function Sidebar (props) {
                 <div class="chatrooms-list-scroll-content">
                 {
                     chatRoomsList.map((chatroom,index) => (
-                            <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>  
+                            <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>          
                     )
 
                     )
