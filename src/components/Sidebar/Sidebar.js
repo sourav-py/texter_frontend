@@ -2,6 +2,10 @@ import { useEffect, useState, useRef } from 'react';
 import ChatRoomsListItem from './ChatRoomsListItem';
 import AddContact from './AddContact';
 import '../../static/css/main.css';
+import '../../static/css/sidebar.css';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 function Sidebar (props) {
 
@@ -129,10 +133,13 @@ function Sidebar (props) {
 
                     )
                 }
-                <span className="show-add-contact-modal-btn">
-                    <i class="fa fa-plus-circle"></i>
-                </span>
+
+                <div className="show-add-contact-modal">
+                    <FontAwesomeIcon onClick={showAddContactModal} icon={faPlusCircle}/>
+                </div>
+                {/*
                 <button class="show-add-contact-modal" onClick={showAddContactModal}>Add Contact</button>
+            */}
                 </div>
             </div>
             <AddContact currentUser = {props.userProfile} addContactModalDisplay = {addContactModalDisplay} showAddContactModal = {showAddContactModal} hideAddContactModal = {hideAddContactModal} setAddContactModalDisplay = {setAddContactModalDisplay} setLastMessageTimestamp = {props.setLastMessageTimestamp}/>
