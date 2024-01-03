@@ -63,10 +63,10 @@ function InputPhone(){
     return (
         <div>
             {!otpSent && 
-            <div>
-                <form onSubmit={handleSubmit}>
-                    <label>Enter phone number</label><br/>
-                    <input type="tel" id="phone" required onChange={handleInput}></input>
+            <div className="login-form-wrapper">
+                <form className="login-form" onSubmit={handleSubmit}>
+                    <label className="input-wrapper">Enter phone number</label><br/>
+                    <input className="phone-input" type="tel" id="phone" required onChange={handleInput}></input>
                     <input type="submit"></input>
                 </form>    
             </div>}

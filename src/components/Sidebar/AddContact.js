@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Contact from "./Contact";
+import ContactPreview from "./ContactPreview";
 import { Button } from "react-bootstrap";
 
 function AddContact (props) {
@@ -91,10 +91,8 @@ function AddContact (props) {
                             Add Contact
                         </div>
                         <input className="phone-input"  type="tel" id="phone-input" value = {phoneNumber} onChange = {handlePhoneNumberInput} placeholder='Enter phone number'></input>
-                        <div className="contact-preview">
-                        {profile && <Contact profile={profile}/>} 
+                        {profile && <ContactPreview profile={profile}/>} 
                         <div className="participation-creation-error">{errorMsg}</div>
-                        </div>
                     </div>
                     <div className="chat-btn-wrapper">
                         { !profile && <input className="chat-btn" type="submit" value="Chat" disabled/>}

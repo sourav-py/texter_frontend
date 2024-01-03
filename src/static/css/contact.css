@@ -1,0 +1,38 @@
+.contact-preview {
+    background-color: var(--listitembgcolorfocus);
+    border-radius: 6px;
+    color: white;
+    height: 3.5em;
+    max-height: 3.5em;
+    margin-bottom: 0.5em;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: auto;
+    overflow: hidden;
+    
+}
+
+.contact-avatar-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-avatar {
+  height: 30px;
+  object-fit: cover;
+  display: block; /* Remove extra space below inline images */
+  border-radius: 100%;
+  
+}
+
+.contact-name-message-wrapper {
+  overflow: hidden;
+  padding: 2%;
+  
+}
+
+.contact-name {
+  font-size: 14px;
+  height: 50%;
+}
