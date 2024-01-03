@@ -5,7 +5,7 @@ import '../../static/css/main.css';
 import '../../static/css/sidebar.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faPlusCircle, faSignOut } from '@fortawesome/free-solid-svg-icons';
 
 function Sidebar (props) {
 
@@ -120,26 +120,28 @@ function Sidebar (props) {
             <div class="user-info">
                 <img className = "user-self-avatar" src={props.userProfile.avatar ? authServerEndpoint + props.userProfile.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
                 <div class="user-options-wrapper">
-                    <div>profile</div>
-                    <div>logout</div>
+                    <div className="fa-user-options-icon">
+                        <FontAwesomeIcon icon={faCog}/>
+                    </div>
+                    <div className="fa-user-options-icon">
+                        <FontAwesomeIcon icon={faSignOut}/>
+                    </div>
                 </div>
             </div>
             <div class="chatrooms-list">
                 <div class="chatrooms-list-scroll-content">
-                {
-                    chatRoomsList.map((chatroom,index) => (
-                            <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>  
-                    )
+                    {
+                        chatRoomsList.map((chatroom,index) => (
+                                <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>          
+                        )
 
-                    )
-                }
+                        )
+                    }
 
-                <div className="show-add-contact-modal">
-                    <FontAwesomeIcon onClick={showAddContactModal} icon={faPlusCircle}/>
-                </div>
-                {/*
-                <button class="show-add-contact-modal" onClick={showAddContactModal}>Add Contact</button>
-            */}
+                    <div className="show-add-contact-modal">
+                        <FontAwesomeIcon onClick={showAddContactModal} icon={faPlusCircle}/>
+                    </div>
+
                 </div>
             </div>
             <AddContact currentUser = {props.userProfile} addContactModalDisplay = {addContactModalDisplay} showAddContactModal = {showAddContactModal} hideAddContactModal = {hideAddContactModal} setAddContactModalDisplay = {setAddContactModalDisplay} setLastMessageTimestamp = {props.setLastMessageTimestamp}/>

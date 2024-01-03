@@ -9,14 +9,18 @@
 }
 
 .message.left {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: .9em;
     float: left;
-    background-color: #CAD2C5;
+    background-color: #e0faff;
     border-radius: 15px 15px 15px 0px;
 }
 
 .message.right {
+    font-family:'Courier New', Courier, monospace;
+    font-size: .9em;
     float: right;
-    background-color: #52B788;
+    background-color: #2A6F97;
     color: white;
     border-radius: 15px 15px 0px 15px;
 }

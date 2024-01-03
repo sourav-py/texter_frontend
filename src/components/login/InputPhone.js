@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import EnterOTP from "./EnterOTP";
 
+import '../../static/css/phone-input.css';
+
 function InputPhone(){
 
     const backendServerEndpoint = 'http://127.0.0.1:8000';
@@ -63,13 +65,14 @@ function InputPhone(){
     return (
         <div>
             {!otpSent && 
-            <div>
-                <form onSubmit={handleSubmit}>
-                    <label>Enter phone number</label><br/>
-                    <input type="tel" id="phone" required onChange={handleInput}></input>
-                    <input type="submit"></input>
-                </form>    
-            </div>}
+                <div className="form-wrapper">
+                    <form className="form" onSubmit={handleSubmit}>
+                            <label>Login</label><br/>
+                            <input type="tel" id="phone" placeholder="Enter phone number" required onChange={handleInput}></input>
+                            <button type="submit">Verify</button>
+                    </form>
+                </div>
+            }
             {otpSent && <EnterOTP phoneNumber={phoneNumber} newProfile = {newProfile}/>}
         </div>
     )
