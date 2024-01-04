@@ -134,7 +134,7 @@ function Main () {
         return (
             <div className="container-wrapper">
                 <div class="container">
-                    <Sidebar currentChatRoom = {currentChatRoom} setCurrentChatRoom = {setCurrentChatRoom} userProfile={userProfile} lastMessageTimeStamp = {lastMessageTimestamp} setLastMessageTimestamp = {setLastMessageTimestamp}/>
+                    <Sidebar currentChatRoom = {currentChatRoom} setCurrentChatRoom = {setCurrentChatRoom} userProfile={userProfile} setUserProfile = {setUserProfile} lastMessageTimeStamp = {lastMessageTimestamp} setLastMessageTimestamp = {setLastMessageTimestamp}/>
                     <ChatRoom chatRoomId = {currentChatRoomId} chatRoom={currentChatRoom} userId = {userProfile.id} handleLastMessageTimestampUpdate = {handleLastMessageTimestampUpdate}/> 
                 </div> 
             </div>

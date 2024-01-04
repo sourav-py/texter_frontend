@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+import '../../static/css/sidebar.css';
 
 function UpdateProfile(props) {
 
@@ -23,6 +25,11 @@ function UpdateProfile(props) {
         setUserAvatar(e.target.files[0]);
          
     }
+
+    useEffect(() => {
+        setUserName(props.userProfile.name);
+        setUserBio(props.userProfile.bio);
+    },[])
 
 
 
@@ -60,6 +67,13 @@ function UpdateProfile(props) {
         .then(
            response => {
                 if(response.status === 200){
+                    response.json()
+                    .then(
+                        responseData => {
+                            props.setUserProfile(responseData);
+                        }
+                    )
+                    props.hideUpdateProfileModal();
                    navigate('/'); 
                 }
                 else{
@@ -77,19 +91,19 @@ function UpdateProfile(props) {
 
 
     return (
-        <div className="edit-user-data">
-            <form onSubmit={handleProfileUpdate}>
-                <label>Phone</label>
-                <input type="tel" value={props.userProfile.phone} disabled/>
-                <label>Name</label>
-                <input type="text" onChange={handleNameChange} value={userName}/>
-                <label>bio</label>
-                <input type="text"  disabled = {false} onChange={handleBioChange} value={userBio}/>
-                <div className="form-submission-error">
-                    {errorMsg}
-                </div>
-                <input type="submit" value="Update"/>
-            </form>
+        <div>
+            <div className={props.updateProfileModalDisplay === "block" ? "update-profile-modal" : "update-profile-modal-hidden"}>
+                <form className="update-profile-form" onSubmit={handleProfileUpdate}>
+                    <label>Phone</label>
+                    <input type="tel" value={props.userProfile.phone} disabled/>
+                    <label>Name</label>
+                    <input type="text" onChange={handleNameChange} value={userName}/>
+                    <label>bio</label>
+                    <input type="text"  disabled = {false} onChange={handleBioChange} value={userBio}/>
+                    <button type="submit">Update</button>
+                </form>
+            </div>
+            <div className={props.updateProfileModalDisplay === "block" ? "overlay" : "overlay-hidden"} onClick={props.hideUpdateProfileModal}></div>
         </div>
     )
 }

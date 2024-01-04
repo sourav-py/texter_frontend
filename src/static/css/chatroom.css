@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Roboto+Condensed&display=swap');
 
 
+
+
 .chatroom {
     display: grid;
     height: 100%;
@@ -8,6 +10,27 @@
     padding: 1%;
     overflow: hidden;
 }
+
+.start-chatting-wrapper {
+    height: 100%;
+    display: flex;
+    gap: 4%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.start-chatting{
+    font-size: 7em;
+    color: var(--windowbgcolor);
+}
+
+.welcome-text{
+    font-size: 1.6em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--windowbgcolor);
+}
+
 
 .chatroom-info {
     margin-left: auto;
