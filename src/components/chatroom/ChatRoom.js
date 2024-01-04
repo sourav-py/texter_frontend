@@ -5,6 +5,8 @@ import useWebSocket, { ReadyState } from 'react-use-websocket';
 import Message from './Message';
 import '../../static/css/main.css';
 import '../../static/css/chatroom.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faComments } from '@fortawesome/free-solid-svg-icons';
 
 
 function ChatRoom (props) {
@@ -141,41 +143,55 @@ function ChatRoom (props) {
   }[readyState];
 
   return (
-    <div class="chatroom">
+    <>
 
-            <div class="chatroom-info">
-                {props.chatRoom &&
-                    <>
-                    <div className="chatroom-avatar-wrapper">
-                      <img className="chatroom-avatar" src={props.chatRoom.avatar ? authServerEndpoint + props.chatRoom.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
-                    </div>
-                      <div className="chatroom-name-wrapper">
-                        <div className="chatroom-name">{props.chatRoom.name}</div>
-                        <div className="activity-status">{userActivityStatus}</div>
+            {!props.chatRoom && 
+              <div className="start-chatting-wrapper">
+                <div className="start-chatting">
+                  <FontAwesomeIcon icon={faComments}/>                  
+                </div>
+                <div className="welcome-text">
+                    Happy texting....
+                </div>  
+              </div>
+            }
+        
+            {props.chatRoom && 
+              <div className="chatroom">
+                <div class="chatroom-info">
+                  {props.chatRoom &&
+                      <>
+                      <div className="chatroom-avatar-wrapper">
+                        <img className="chatroom-avatar" src={props.chatRoom.avatar ? authServerEndpoint + props.chatRoom.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
                       </div>
+                        <div className="chatroom-name-wrapper">
+                          <div className="chatroom-name">{props.chatRoom.name}</div>
+                          <div className="activity-status">{userActivityStatus}</div>
+                        </div>
 
-                      <div className="chatroom-options">
-                      </div>
-                    </>
+                        <div className="chatroom-options">
+                        </div>
+                      </>
+                  }
+              </div>
+
+              <div class="messages-window" id="chat-log">
+                {
+                  chatLog.map((message) => (
+                      message
+                  ))
                 }
-            </div>
+              </div>
 
-            <div class="messages-window" id="chat-log">
-              {
-                chatLog.map((message) => (
-                    message
-                ))
-              }
-            </div>
-
-            <div class="message-input-window">
-                <form className="message-input-wrapper">
-                  <input className="message-input" id="message" type="text" placeholder='type your messsage'/>
-                  <input className="send-message-btn" type="submit" value="Send" onClick={handleMessageSubmit}></input>
-                </form>
-            </div>
-
-        </div>
+              <div class="message-input-window">
+                  <form className="message-input-wrapper">
+                    <input className="message-input" id="message" type="text" placeholder='type your messsage'/>
+                    <input className="send-message-btn" type="submit" value="Send" onClick={handleMessageSubmit}></input>
+                  </form>
+              </div>
+          </div> 
+          }
+        </>
   );
 };
 

@@ -6,13 +6,17 @@ import '../../static/css/sidebar.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog, faPlusCircle, faSignOut } from '@fortawesome/free-solid-svg-icons';
+import UpdateProfile from './UpdateProfile';
+import { useNavigate } from 'react-router-dom';
 
 function Sidebar (props) {
 
     const authServerEndpoint = 'http://127.0.0.1:8000/';
+    const navigate = useNavigate();
     const debugPrefix = "------SIDEBAR-----";
     const [chatRoomsList,setChatRoomsList] = useState(null);
     const [addContactModalDisplay,setAddContactModalDisplay] = useState("none");
+    const [updateProfileModalDisplay,setupdateProfileModalDisplay] = useState("none");
 
 
     useEffect(() => {
@@ -105,6 +109,38 @@ function Sidebar (props) {
         setAddContactModalDisplay("none");
     }
 
+    const showUpdateProfileModal = () => {
+        setupdateProfileModalDisplay("block");
+    }
+
+    const hideUpdateProfileModal = () => {
+        setupdateProfileModalDisplay("none");
+    }
+
+    const logout = () => {
+        fetch(authServerEndpoint + 'auth/logout/',{
+                method: "GET", // *GET, POST, PUT, DELETE, etc.
+                mode: "cors", // no-cors, *cors, same-origin
+                credentials: 'include',
+                headers: {
+                    "Content-Type": "application/json",
+                }
+        })
+        .then(
+            response => {
+                console.log(response);
+                if(response.status === 200){
+                    navigate('/login');
+                }
+            }
+        )
+        .catch(
+            error => {
+                console.log("Logout error: ",error);
+            }
+        )
+    }
+
     
    
    if(chatRoomsList == null){
@@ -121,10 +157,10 @@ function Sidebar (props) {
                 <img className = "user-self-avatar" src={props.userProfile.avatar ? authServerEndpoint + props.userProfile.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
                 <div class="user-options-wrapper">
                     <div className="fa-user-options-icon">
-                        <FontAwesomeIcon icon={faCog}/>
+                        <FontAwesomeIcon onClick = {showUpdateProfileModal} icon={faCog}/>
                     </div>
                     <div className="fa-user-options-icon">
-                        <FontAwesomeIcon icon={faSignOut}/>
+                        <FontAwesomeIcon onClick = {logout} icon={faSignOut}/>
                     </div>
                 </div>
             </div>
@@ -145,6 +181,7 @@ function Sidebar (props) {
                 </div>
             </div>
             <AddContact currentUser = {props.userProfile} addContactModalDisplay = {addContactModalDisplay} showAddContactModal = {showAddContactModal} hideAddContactModal = {hideAddContactModal} setAddContactModalDisplay = {setAddContactModalDisplay} setLastMessageTimestamp = {props.setLastMessageTimestamp}/>
+            <UpdateProfile setUserProfile={props.setUserProfile} userProfile = {props.userProfile} updateProfileModalDisplay = {updateProfileModalDisplay} hideUpdateProfileModal={hideUpdateProfileModal}/>
         </div>
     ) 
     }

@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import Main from "../Main";
 import UpdateProfile from "../Sidebar/UpdateProfile";
 
+import '../../static/css/login.css';
+import { Button } from "react-bootstrap";
+
 function EnterOTP(props) {
 
     const backendServerEndpoint = 'http://127.0.0.1:8000';
@@ -61,11 +64,15 @@ function EnterOTP(props) {
     
     return(
         <div>
-            {!userProfile && <form onSubmit={handleSubmit}>
-                    <label>Enter OTP</label>
-                    <input type="text" placeholder="OTP" onChange={handleInput}></input>
-                    <input type="submit"></input>
-                </form>
+            {!userProfile && 
+                <div className="form-wrapper">
+                    <form className="form" onSubmit={handleSubmit}>
+                        <label>Enter OTP</label>
+                        <br/>
+                        <input type="text" placeholder="OTP" onChange={handleInput}></input>
+                        <button type="submit">Verify</button>
+                    </form>
+                </div>
             }
             {userProfile && props.newProfile && 
                 <div>

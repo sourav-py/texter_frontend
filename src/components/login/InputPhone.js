@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import EnterOTP from "./EnterOTP";
 
-import '../../static/css/phone-input.css';
+import '../../static/css/login.css';
 
 function InputPhone(){
 
@@ -67,9 +67,10 @@ function InputPhone(){
             {!otpSent && 
                 <div className="form-wrapper">
                     <form className="form" onSubmit={handleSubmit}>
-                            <label>Login</label><br/>
+                            <label>Login</label>
+                            <br/>
                             <input type="tel" id="phone" placeholder="Enter phone number" required onChange={handleInput}></input>
-                            <button type="submit">Verify</button>
+                            <button type="submit">Send otp</button>
                     </form>
                 </div>
             }
