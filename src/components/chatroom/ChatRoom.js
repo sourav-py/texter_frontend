@@ -16,6 +16,7 @@ function ChatRoom (props) {
   const userId = props.userId;
   const [chatLog,setChatLog] = useState([]);
   const [userActivityStatus,setUserActivityStatus] = useState(null);
+  const [showIsTyping,setShowIsTyping] = useState(false);
   const authServerEndpoint = 'http://127.0.0.1:8000/';
                                       
 
@@ -109,11 +110,19 @@ function ChatRoom (props) {
 
         var message = messageData.body;
         var senderId = messageData.userId;
-        var messageType = messageData.messageType;
+        var messageType = messageData.type;
 
-        if(messageType !== "typing"){
+        console.log(messageType);
+
+        if(messageType === "textMessage"){
           setChatLog(prevChatLog => [...prevChatLog,<Message key={prevChatLog.length} userId = {userId} senderId = {senderId} message={message}/>]);
           props.handleLastMessageTimestampUpdate();
+        }
+        else if(messageType === "typing" && senderId != userId){
+           setShowIsTyping(true);
+           setTimeout(() => {
+              setShowIsTyping(false); 
+           }, 2000); 
         }
         
     }
@@ -132,6 +141,17 @@ function ChatRoom (props) {
           }));
           document.querySelector('#message').value = '';
         }
+  }
+
+  const handleKeyPress = async (e) => {
+    console.log("handle key press")
+    sendMessage(JSON.stringify(
+      {
+        'userId': userId,
+        "messageType": "typing",
+        "message": "dummy",
+      }
+    ));
   }
 
   const connectionStatus = {
@@ -166,7 +186,9 @@ function ChatRoom (props) {
                       </div>
                         <div className="chatroom-name-wrapper">
                           <div className="chatroom-name">{props.chatRoom.name}</div>
-                          <div className="activity-status">{userActivityStatus}</div>
+                          <div className="activity-status">
+                            {showIsTyping ? "typing..." :  userActivityStatus}
+                          </div>
                         </div>
 
                         <div className="chatroom-options">
@@ -185,7 +207,7 @@ function ChatRoom (props) {
 
               <div class="message-input-window">
                   <form className="message-input-wrapper">
-                    <input className="message-input" id="message" type="text" placeholder='type your messsage'/>
+                    <input className="message-input" id="message" type="text" onKeyDown={handleKeyPress} placeholder='type your messsage'/>
                     <input className="send-message-btn" type="submit" value="Send" onClick={handleMessageSubmit}></input>
                   </form>
               </div>
