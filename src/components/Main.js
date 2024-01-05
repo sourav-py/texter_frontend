@@ -72,7 +72,9 @@ function Main () {
         // Clean up the interval on component unmount or when the tab loses focus
         return () => clearInterval(interval);
         }
-    }, [isTabFocused]);
+    }, [isTabFocused,userProfile]);
+
+    
 
     //Check if a sesion exists or not
     useEffect(() => {
@@ -83,7 +85,10 @@ function Main () {
 
         // Add event listener for visibility change
         document.addEventListener('visibilitychange', handleVisibilityChange);
-        
+
+        //For initial Status API call
+        setIsTabFocused(!document.hidden);
+    
 
         const fetchUser = async () => {
             fetch(authServerEndpoint + 'auth/user/',{
@@ -125,7 +130,7 @@ function Main () {
 
         // Clean up the event listener on component unmount
         return () => {
-            document.removeEventListener('visibilitychange', handleVisibilityChange);
+            document.removeEventListener('visibilitychange', handleVisibilityChange); 
         };
 
     },[])

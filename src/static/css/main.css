@@ -1,11 +1,12 @@
 :root {
   --bgcolor: #003249;
-  --panelcolor: #003554;
+  --dummycolor: #0a435e;
+  --panelcolor: #0a435e;
   --listbgcolor: #003554;
   --windowbgcolor:  #A9D6E5;
   --containershadow: #61A5C2;
   --listitembgcolor: #52796F;
-  --listitembgcolorfocus: #01497C;
+  --listitembgcolorfocus: #2A6F97;
   --msginputborderfocus: #01497C;
   --sendmsgbtnbgcolor: #01497C;
   --sendmsgbtnbgcolorhover: #01497C;
@@ -46,9 +47,7 @@
 }
 
 .user-info {
-  border: 1px solid var(--panelcolor);
   border-radius: 10px;
-  background-color: var(--panelcolor);
   color: white;
   display: grid;
   grid-template-columns: 20% 80%;
@@ -71,7 +70,6 @@
 
 .chatrooms-list {
   border-radius: 10px;
-  background-color: var(--listbgcolor);
   overflow: hidden;
   height: 100%;
   padding: 2%;
@@ -150,6 +148,9 @@
 
 .chatroom-list-item {
     color: white;
+    border: 1px solid var(--dummycolor);
+    background-color: var(--dummycolor);
+    border-radius: 10px;
     height: 3.5em;
     max-height: 3.5em;
     margin-bottom: 0.5em;
@@ -160,9 +161,10 @@
 }
 
 .chatroom-list-item:hover {
+    border: 1px solid var(--listitembgcolorfocus);
+    border-radius: 10px;
     background-color: var(--listitembgcolorfocus);
     color: white;
-    border-radius: 0px;
     height: 3.5em;
     max-height: 3.5em;
     margin-bottom: 0.5em;
@@ -173,9 +175,10 @@
 }
 
 .chatroom-list-item-selected {
+    border: 1px solid var(--listitembgcolorfocus);
+    border-radius: 10px;
     background-color: var(--listitembgcolorfocus);
     color: white;
-    border-radius: 0px;
     height: 3.5em;
     max-height: 3.5em;
     margin-bottom: 0.5em;
