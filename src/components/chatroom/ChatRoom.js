@@ -17,6 +17,8 @@ function ChatRoom (props) {
   const [chatLog,setChatLog] = useState([]);
   const [userActivityStatus,setUserActivityStatus] = useState(null);
   const [showIsTyping,setShowIsTyping] = useState(false);
+  const [canInvokeTypingMessage,setCanInvokeTypingMessage] = useState(true);
+
   const authServerEndpoint = 'http://127.0.0.1:8000/';
                                       
 
@@ -145,13 +147,21 @@ function ChatRoom (props) {
 
   const handleKeyPress = async (e) => {
     console.log("handle key press")
-    sendMessage(JSON.stringify(
-      {
-        'userId': userId,
-        "messageType": "typing",
-        "message": "dummy",
-      }
-    ));
+
+    if(canInvokeTypingMessage){
+      sendMessage(JSON.stringify(
+        {
+          'userId': userId,
+          "messageType": "typing",
+          "message": "dummy",
+        }
+      ));
+    }
+
+    setCanInvokeTypingMessage(false);
+    setTimeout(() => {
+        setCanInvokeTypingMessage(true); 
+    }, 3000);
   }
 
   const connectionStatus = {
