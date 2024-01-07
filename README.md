@@ -1,5 +1,16 @@
 # texter: front-end
-### Front-end codebase for 'texter', a web socket based chat application.
+
+### Index
+- [Introduction](https://github.com/sourav-py/texter_frontend/tree/main?tab=readme-ov-file#front-end-codebase-for-texter-a-web-socket-based-chat-application)
+- [Features](https://github.com/sourav-py/texter_frontend/tree/main?tab=readme-ov-file#features)
+- [Screenshots](https://github.com/sourav-py/texter_frontend/tree/main?tab=readme-ov-file#screenshots)
+- [Folder Structure](https://github.com/sourav-py/texter_frontend/tree/main?tab=readme-ov-file#folder-structure)
+- [Setup](https://github.com/sourav-py/texter_frontend/tree/main?tab=readme-ov-file#setup)
+- [Development Guidelines](https://github.com/sourav-py/texter_frontend/tree/main?tab=readme-ov-file#development-guidelines)
+- [Issues](https://github.com/sourav-py/texter_frontend/tree/main?tab=readme-ov-file#issues)
+- [Future Developments](https://github.com/sourav-py/texter_frontend/tree/main?tab=readme-ov-file#future-developments)
+  
+#### Front-end codebase for 'texter', a web socket based chat application.
 This repository is a `react` project to develop UI for the texter application. This application interacts with the back-end ([texter_backend](https://github.com/sourav-py/texter_backend)) to provide seamless messaging experience. 
 
 #### Features:
