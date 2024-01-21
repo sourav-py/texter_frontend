@@ -46,6 +46,15 @@ function EnterOTP(props) {
                 .then(
                     responseData => {
                         setUserProfile(responseData);    
+                        setErrorMsg(null);
+                    }
+                )
+            }
+            else{
+                response.json()
+                .then(
+                    responseData => {
+                        setErrorMsg(responseData.message);
                     }
                 )
             }
@@ -71,6 +80,9 @@ function EnterOTP(props) {
                         <br/>
                         <input type="text" placeholder="OTP" onChange={handleInput}></input>
                         <button type="submit">Verify</button>
+                        <div style={{color:"red",fontSize:"12px",margin:"5%"}}>
+                            {errorMsg}
+                        </div>
                     </form>
                 </div>
             }
