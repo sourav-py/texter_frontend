@@ -8,7 +8,7 @@ import { Button } from "react-bootstrap";
 
 function EnterOTP(props) {
 
-    const backendServerEndpoint = 'http://127.0.0.1:8000';
+    const backendServerEndpoint = 'https://base64dev.pythonanywhere.com';
     const navigate = useNavigate();
     const [otp,setOtp] = useState(null);
     const [userProfile,setUserProfile] = useState(null);

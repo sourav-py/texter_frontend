@@ -4,7 +4,7 @@ import '../../static/css/main.css';
 
 function Contact (props) {
 
-    const authServerEndpoint = 'http://127.0.0.1:8000';
+    const authServerEndpoint = 'https://base64dev.pythonanywhere.com';
 
    return (
         <div class="chatroom-list-item">

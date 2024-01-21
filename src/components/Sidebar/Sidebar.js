@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Sidebar (props) {
 
-    const authServerEndpoint = 'http://127.0.0.1:8000/';
+    const authServerEndpoint = 'https://base64dev.pythonanywhere.com/';
     const navigate = useNavigate();
     const debugPrefix = "------SIDEBAR-----";
     const [chatRoomsList,setChatRoomsList] = useState(null);

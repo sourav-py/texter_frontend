@@ -3,7 +3,7 @@ import '../../static/css/main.css';
 
 function ChatRoomsListItem (props) {
 
-    const authServerEndpoint = 'http://127.0.0.1:8000';
+    const authServerEndpoint = 'https://base64dev.pythonanywhere.com';
     const debugPrefix = "CHATROOM_LIST_ITEM:::::";
     const [className,setClassName] = useState("chatroom-list-item");
 

@@ -5,7 +5,7 @@ import '../../static/css/modal.css';
 
 function AddContact (props) {
 
-    const authServerEndpoint = 'http://127.0.0.1:8000/';
+    const authServerEndpoint = 'https://base64dev.pythonanywhere.com/';
     const [phoneNumber,setPhoneNumber] = useState(null);
     const [validPhoneNumber,setValidPhoneNumber] = useState(false);
     const [profile,setProfile] = useState(null);

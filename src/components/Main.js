@@ -10,7 +10,7 @@ import ChatRoom from './chatroom/ChatRoom';
 function Main () {
 
     console.log("----MAIN-----")
-    const authServerEndpoint = 'http://127.0.0.1:8000/';
+    const authServerEndpoint = 'https://base64dev.pythonanywhere.com/';
     const debugPrefix = "MAIN:::::";
     const navigate = useNavigate();
    

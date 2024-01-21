@@ -6,7 +6,7 @@ import '../../static/css/login.css';
 
 function InputPhone(){
 
-    const backendServerEndpoint = 'http://127.0.0.1:8000';
+    const backendServerEndpoint = 'https://base64dev.pythonanywhere.com';
     const navigate = useNavigate();
     const [phoneNumber,setPhoneNumber] = useState(null);
     const [otpSent,setOtpSent] = useState(false);
