@@ -50,10 +50,10 @@ This repository is a `react` project to develop UI for the texter application. T
 #### Development guidelines
 
 #### Issues
-
+- [text styling](https://github.com/sourav-py/texter_frontend/issues/17)
 #### Future developments
-- Storing/Sending messages in encrypted format
-- Adding minor animations
+- [Message encryption](https://github.com/sourav-py/texter_frontend/issues/19)
+- [Animations](https://github.com/sourav-py/texter_frontend/issues/18)
 
 
 
