@@ -1,5 +1,4 @@
 
-import '../../static/css/message.css';
 
 function Message (props) {
 

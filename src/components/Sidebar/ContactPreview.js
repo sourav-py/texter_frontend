@@ -1,4 +1,3 @@
-import '../../static/css/contact.css';
 
 function ContactPreview (props) {
 

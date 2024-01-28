@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import DummyLogin from './login/DummyLogin';
 import Sidebar from './Sidebar/Sidebar';
 
-import '../static/css/main.css';
 import ChatRoom from './chatroom/ChatRoom';
 
 

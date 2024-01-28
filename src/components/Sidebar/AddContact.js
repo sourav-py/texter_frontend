@@ -1,7 +1,6 @@
 import { useState } from "react";
 import ContactPreview from "./ContactPreview";
 import { Button } from "react-bootstrap";
-import '../../static/css/modal.css';
 
 function AddContact (props) {
 

@@ -7,6 +7,7 @@ import './App.css';
 import ServerDown from './components/error/ServerDown';
 import EnterOTP from './components/login/EnterOTP';
 import DummyLogin from './components/login/DummyLogin';
+import Scratch from './components/Scratch';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/enterotp" element={<EnterOTP/>} />
-        <Route path="login" element={<InputPhone />} />
+        <Route path="/login" element={<InputPhone />} />
         <Route path="/down-for-maintainance" element={<ServerDown/>}/>
         <Route path="*" element={<NotFound />} />
       </Routes>

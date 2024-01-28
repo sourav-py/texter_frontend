@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import Main from "../Main";
 import UpdateProfile from "../Sidebar/UpdateProfile";
 
-import '../../static/css/login.css';
-import { Button } from "react-bootstrap";
 
 function EnterOTP(props) {
 

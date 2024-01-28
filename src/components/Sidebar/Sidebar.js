@@ -1,8 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import ChatRoomsListItem from './ChatRoomsListItem';
 import AddContact from './AddContact';
-import '../../static/css/main.css';
-import '../../static/css/sidebar.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog, faPlusCircle, faSignOut } from '@fortawesome/free-solid-svg-icons';

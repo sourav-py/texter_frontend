@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import EnterOTP from "./EnterOTP";
 
-import '../../static/css/login.css';
 
 function InputPhone(){
 
@@ -63,18 +62,24 @@ function InputPhone(){
     }
 
     return (
-        <div>
-            {!otpSent && 
-                <div className="form-wrapper">
-                    <form className="form" onSubmit={handleSubmit}>
-                            <label>Login</label>
-                            <br/>
-                            <input type="tel" id="phone" placeholder="Enter phone number" required onChange={handleInput}></input>
-                            <button type="submit">Send otp</button>
+        <div className="flex flex-row h-[100vh]">
+            <div className=" w-[50%] bg-slate-200"></div>
+            <div className="flex justify-center items-center w-[50%] bg-white">
+                {!otpSent && 
+                    <form className="w-[70%]" onSubmit={handleSubmit}>
+                        <div className="flex justify-center p-2 mb-6  text-5xl text-slate-600">
+                            Let's start chatting...
+                        </div>
+                        <div className="p-2 mb-6 border-dotted flex justify-center">
+                            <input className="border-[1px] w-3/4 p-2 rounded-md placeholder:text-slate-400 text-slate-700 border-slate-200 focus:outline-none focus:border-slate-500 focus:ring-slate-500 focus:ring-1" type="tel" id="phone" placeholder="Enter phone number" required onChange={handleInput}></input>
+                        </div>
+                        <div className="p-2 m-2 flex justify-center items-center">
+                            <button className="rounded-lg h-10 w-24 border-2 border-slate-400 hover:bg-slate-400 hover:text-white" type="submit">Send otp</button>
+                        </div>
                     </form>
-                </div>
-            }
-            {otpSent && <EnterOTP phoneNumber={phoneNumber} newProfile = {newProfile}/>}
+                }
+                {otpSent && <EnterOTP phoneNumber={phoneNumber} newProfile = {newProfile}/>}
+            </div>
         </div>
     )
 }
