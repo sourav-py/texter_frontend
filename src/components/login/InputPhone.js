@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import EnterOTP from "./EnterOTP";
+import FloatingIcons from "./FloatingIcons";
 
 
 function InputPhone(){
@@ -63,7 +64,9 @@ function InputPhone(){
 
     return (
         <div className="flex flex-row h-[100vh]">
-            <div className=" w-[50%] bg-slate-200"></div>
+            <div className="grid grid-cols-3 gap-4 p-6 bg-slate-300 w-[50%]">
+                <FloatingIcons/>
+            </div>
             <div className="flex justify-center items-center w-[50%] bg-white">
                 {!otpSent && 
                     <form className="w-[70%]" onSubmit={handleSubmit}>
