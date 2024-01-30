@@ -70,7 +70,7 @@ function InputPhone(){
             <div className="flex justify-center items-center w-[50%] bg-white">
                 {!otpSent && 
                     <form className="w-[70%]" onSubmit={handleSubmit}>
-                        <div className="flex justify-center p-2 mb-6  text-5xl text-slate-600">
+                        <div className="flex justify-center p-2 mb-6  text-5xl text-slate-700">
                             Let's start chatting...
                         </div>
                         <div className="p-2 mb-6 border-dotted flex justify-center">

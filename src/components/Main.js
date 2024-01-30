@@ -136,10 +136,14 @@ function Main () {
     
     if(userProfile){
         return (
-            <div className="container-wrapper">
-                <div class="container">
-                    <Sidebar currentChatRoom = {currentChatRoom} setCurrentChatRoom = {setCurrentChatRoom} userProfile={userProfile} setUserProfile = {setUserProfile} lastMessageTimeStamp = {lastMessageTimestamp} setLastMessageTimestamp = {setLastMessageTimestamp}/>
-                    <ChatRoom chatRoomId = {currentChatRoomId} chatRoom={currentChatRoom} userId = {userProfile.id} handleLastMessageTimestampUpdate = {handleLastMessageTimestampUpdate}/> 
+            <div className="h-[100vh] w-[100vw] flex justify-center items-center">
+                <div className="h-[92vh] w-[85vw] flex flex-row gap-2 place-content-around  border-2 border-dotted border-slate-700">
+                    <div className="flex flex-col gap-2 place-content-around w-[20%]  border-2 border-green-700">
+                        <Sidebar currentChatRoom = {currentChatRoom} setCurrentChatRoom = {setCurrentChatRoom} userProfile={userProfile} setUserProfile = {setUserProfile} lastMessageTimeStamp = {lastMessageTimestamp} setLastMessageTimestamp = {setLastMessageTimestamp}/>
+                    </div>
+                    <div className="w-[75%] border-2 border-red-700">
+                        <ChatRoom chatRoomId = {currentChatRoomId} chatRoom={currentChatRoom} userId = {userProfile.id} handleLastMessageTimestampUpdate = {handleLastMessageTimestampUpdate}/> 
+                    </div>
                 </div> 
             </div>
         )

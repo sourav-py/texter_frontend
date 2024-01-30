@@ -150,8 +150,8 @@ function Sidebar (props) {
    }
    else{
     return (
-        <div class="sidebar">
-            <div class="user-info">
+        <>
+            <div className="border-2 border-dotted border-blue-500 h-[10%] overflow-hidden">
                 <img className = "user-self-avatar" src={props.userProfile.avatar ? authServerEndpoint + props.userProfile.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
                 <div class="user-options-wrapper">
                     <div className="fa-user-options-icon">
@@ -162,7 +162,7 @@ function Sidebar (props) {
                     </div>
                 </div>
             </div>
-            <div class="chatrooms-list">
+            <div className="h-[85%] border-2 border-red-500 border-dotted">
                 <div class="chatrooms-list-scroll-content">
                     {
                         chatRoomsList.map((chatroom,index) => (
@@ -178,9 +178,14 @@ function Sidebar (props) {
 
                 </div>
             </div>
-            <AddContact currentUser = {props.userProfile} addContactModalDisplay = {addContactModalDisplay} showAddContactModal = {showAddContactModal} hideAddContactModal = {hideAddContactModal} setAddContactModalDisplay = {setAddContactModalDisplay} setLastMessageTimestamp = {props.setLastMessageTimestamp}/>
-            <UpdateProfile setUserProfile={props.setUserProfile} userProfile = {props.userProfile} updateProfileModalDisplay = {updateProfileModalDisplay} hideUpdateProfileModal={hideUpdateProfileModal}/>
-        </div>
+            
+            <div className="hidden">
+                <AddContact  currentUser = {props.userProfile} addContactModalDisplay = {addContactModalDisplay} showAddContactModal = {showAddContactModal} hideAddContactModal = {hideAddContactModal} setAddContactModalDisplay = {setAddContactModalDisplay} setLastMessageTimestamp = {props.setLastMessageTimestamp}/>
+            </div>
+            <div className="hidden">
+                <UpdateProfile  setUserProfile={props.setUserProfile} userProfile = {props.userProfile} updateProfileModalDisplay = {updateProfileModalDisplay} hideUpdateProfileModal={hideUpdateProfileModal}/>
+            </div>
+        </>
     ) 
     }
 }
