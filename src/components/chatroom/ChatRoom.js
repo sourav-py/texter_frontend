@@ -17,7 +17,7 @@ function ChatRoom (props) {
   const [showIsTyping,setShowIsTyping] = useState(false);
   const [canInvokeTypingMessage,setCanInvokeTypingMessage] = useState(true);
 
-  const authServerEndpoint = 'https://base64dev.pythonanywhere.com/';
+  const authServerEndpoint = 'http://127.0.0.1:8000/';
                                       
 
   const { sendMessage, lastMessage, readyState } = useWebSocket('ws://127.0.0.1:8000'
@@ -185,27 +185,19 @@ function ChatRoom (props) {
             }
         
             {props.chatRoom && 
-              <div className="chatroom">
-                <div class="chatroom-info">
-                  {props.chatRoom &&
-                      <>
-                      <div className="chatroom-avatar-wrapper">
-                        <img className="chatroom-avatar" src={props.chatRoom.avatar ? authServerEndpoint + props.chatRoom.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
-                      </div>
-                        <div className="chatroom-name-wrapper">
-                          <div className="chatroom-name">{props.chatRoom.name}</div>
-                          <div className="activity-status">
+              <div className="flex flex-col h-full space-y-2">
+                <div class="flex flex-row mt-2 pl-4 gap-x-4 items-center   border-2 border-dotted border-slate-700 h-[8%]">
+                        <img className=" w-10 h-10" src={props.chatRoom.avatar ? authServerEndpoint + props.chatRoom.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
+                        <div>
+                          <div className="">{props.chatRoom.name}</div>
+                          <div className="text-sm text-slate-700">
                             {showIsTyping ? "typing..." :  userActivityStatus}
                           </div>
                         </div>
 
-                        <div className="chatroom-options">
-                        </div>
-                      </>
-                  }
               </div>
 
-              <div class="messages-window" id="chat-log">
+              <div class="border-2 border-dotted border-slate-700 h-[80%]" id="chat-log">
                 {
                   chatLog.map((message) => (
                       message
@@ -213,10 +205,10 @@ function ChatRoom (props) {
                 }
               </div>
 
-              <div class="message-input-window">
-                  <form className="message-input-wrapper">
-                    <input className="message-input" id="message" type="text" onKeyDown={handleKeyPress} placeholder='type your messsage'/>
-                    <input className="send-message-btn" type="submit" value="Send" onClick={handleMessageSubmit}></input>
+              <div className=" flex items-center border-2 border-dotted border-slate-700 h-[7%]">
+                  <form className=" flex flex-row items-center place-content-center w-full">
+                    <input className=" p-2 h-8 w-[55%] mr-6 border-2 border-slate-400 rounded" id="message" type="text" onKeyDown={handleKeyPress} placeholder='type your messsage'/>
+                    <input className="p-1 w-24 rounded border-2 border-slate-300 hover:bg-slate-300" type="submit" value="Send" onClick={handleMessageSubmit}></input>
                   </form>
               </div>
           </div> 

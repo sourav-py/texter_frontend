@@ -9,7 +9,7 @@ import ChatRoom from './chatroom/ChatRoom';
 function Main () {
 
     console.log("----MAIN-----")
-    const authServerEndpoint = 'https://base64dev.pythonanywhere.com/';
+    const authServerEndpoint = 'http://127.0.0.1:8000/';
     const debugPrefix = "MAIN:::::";
     const navigate = useNavigate();
    
@@ -138,10 +138,10 @@ function Main () {
         return (
             <div className="h-[100vh] w-[100vw] flex justify-center items-center">
                 <div className="h-[92vh] w-[85vw] flex flex-row gap-2 place-content-around  border-2 border-dotted border-slate-700">
-                    <div className="flex flex-col gap-2 place-content-around w-[20%]  border-2 border-green-700">
+                    <div className="flex flex-col gap-1 place-content-around w-[21%] ">
                         <Sidebar currentChatRoom = {currentChatRoom} setCurrentChatRoom = {setCurrentChatRoom} userProfile={userProfile} setUserProfile = {setUserProfile} lastMessageTimeStamp = {lastMessageTimestamp} setLastMessageTimestamp = {setLastMessageTimestamp}/>
                     </div>
-                    <div className="w-[75%] border-2 border-red-700">
+                    <div className="w-[76%]">
                         <ChatRoom chatRoomId = {currentChatRoomId} chatRoom={currentChatRoom} userId = {userProfile.id} handleLastMessageTimestampUpdate = {handleLastMessageTimestampUpdate}/> 
                     </div>
                 </div> 

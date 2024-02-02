@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Sidebar (props) {
 
-    const authServerEndpoint = 'https://base64dev.pythonanywhere.com/';
+    const authServerEndpoint = 'http://127.0.0.1:8000/';
     const navigate = useNavigate();
     const debugPrefix = "------SIDEBAR-----";
     const [chatRoomsList,setChatRoomsList] = useState(null);
@@ -151,31 +151,42 @@ function Sidebar (props) {
    else{
     return (
         <>
-            <div className="border-2 border-dotted border-blue-500 h-[10%] overflow-hidden">
-                <img className = "user-self-avatar" src={props.userProfile.avatar ? authServerEndpoint + props.userProfile.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
-                <div class="user-options-wrapper">
-                    <div className="fa-user-options-icon">
+            <div className="flex flex-row space-x-10 pl-4 items-center border-2 border-dotted border-blue-500 h-[10%] overflow-hidden">
+                <img className = "w-10 h-10" src={props.userProfile.avatar ? authServerEndpoint + props.userProfile.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
+                <div className=" flex place-content-end pr-2 border-2 border-dotted border-slate-700 w-full flex-row items-center">
+                    <div className="pr-4 text-xl">
                         <FontAwesomeIcon onClick = {showUpdateProfileModal} icon={faCog}/>
                     </div>
-                    <div className="fa-user-options-icon">
+                    <div className="pr-4 text-xl">
                         <FontAwesomeIcon onClick = {logout} icon={faSignOut}/>
                     </div>
                 </div>
             </div>
-            <div className="h-[85%] border-2 border-red-500 border-dotted">
-                <div class="chatrooms-list-scroll-content">
+            <div className="h-[85%] border-2 border-red-500 border-dotted pt-2 overflow-scroll">
+                <div className=" flex flex-col gap-2">
                     {
                         chatRoomsList.map((chatroom,index) => (
+                            <>
                                 <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>          
+                                <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>
+                                <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>
+                                <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>
+                                <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>
+                                <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>
+                                <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>
+                                <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>
+                                <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>
+                                <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>
+                                <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>
+                                <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>
+                            </>
                         )
 
                         )
                     }
-
-                    <div className="show-add-contact-modal">
-                        <FontAwesomeIcon onClick={showAddContactModal} icon={faPlusCircle}/>
+                    <div className="flex flex-row place-content-end p-4 text-2xl mr-2 sticky bottom-0">
+                        <FontAwesomeIcon  onClick={showAddContactModal} icon={faPlusCircle}/>
                     </div>
-
                 </div>
             </div>
             

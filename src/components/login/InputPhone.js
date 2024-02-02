@@ -6,7 +6,7 @@ import FloatingIcons from "./FloatingIcons";
 
 function InputPhone(){
 
-    const backendServerEndpoint = 'https://base64dev.pythonanywhere.com';
+    const backendServerEndpoint = 'http://127.0.0.1:8000';
     const navigate = useNavigate();
     const [phoneNumber,setPhoneNumber] = useState(null);
     const [otpSent,setOtpSent] = useState(false);
