@@ -174,12 +174,12 @@ function ChatRoom (props) {
     <>
 
             {!props.chatRoom && 
-              <div className="start-chatting-wrapper">
-                <div className="start-chatting">
+              <div className="h-full flex flex-col items-center justify-center">
+                <div className="text-9xl mb-6 text-slate-600">
                   <FontAwesomeIcon icon={faComments}/>                  
                 </div>
-                <div className="welcome-text">
-                    Happy texting....
+                <div className="text-4xl text-slate-600">
+                    Select or add a chatroom
                 </div>  
               </div>
             }

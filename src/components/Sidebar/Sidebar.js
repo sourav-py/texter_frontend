@@ -151,7 +151,7 @@ function Sidebar (props) {
    else{
     return (
         <>
-            <div className="flex flex-row space-x-10 pl-4 items-center border-2 border-dotted border-blue-500 h-[10%] overflow-hidden">
+            <div className="flex flex-row space-x-10 pl-4 items-center border-2 border-dotted border-blue-500 h-[9%] overflow-hidden">
                 <img className = "w-10 h-10" src={props.userProfile.avatar ? authServerEndpoint + props.userProfile.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
                 <div className=" flex place-content-end pr-2 border-2 border-dotted border-slate-700 w-full flex-row items-center">
                     <div className="pr-4 text-xl">
@@ -162,29 +162,21 @@ function Sidebar (props) {
                     </div>
                 </div>
             </div>
-            <div className="h-[85%] border-2 border-red-500 border-dotted pt-2 overflow-scroll">
+            <div className="h-[6%] flex items-end">
+                <div className="text-lg text-slate-600 pl-3">
+                    Chats
+                </div>
+            </div>
+            <div className="h-[83%]  p-2 overflow-y-scroll no-scrollbar">
                 <div className=" flex flex-col gap-2">
                     {
                         chatRoomsList.map((chatroom,index) => (
-                            <>
                                 <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>          
-                                <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>
-                                <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>
-                                <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>
-                                <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>
-                                <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>
-                                <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>
-                                <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>
-                                <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>
-                                <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>
-                                <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>
-                                <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>
-                            </>
-                        )
+                                                    )
 
                         )
                     }
-                    <div className="flex flex-row place-content-end p-4 text-2xl mr-2 sticky bottom-0">
+                    <div className="flex flex-row place-content-end p-4 text-3xl text-slate-600 mr-2 sticky bottom-0">
                         <FontAwesomeIcon  onClick={showAddContactModal} icon={faPlusCircle}/>
                     </div>
                 </div>
