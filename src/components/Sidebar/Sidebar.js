@@ -151,13 +151,13 @@ function Sidebar (props) {
    else{
     return (
         <>
-            <div className="flex flex-row space-x-10 pl-4 items-center border-2 border-dotted border-blue-500 h-[9%] overflow-hidden">
+            <div className="flex flex-row space-x-10 pl-4 items-center  h-[9%] overflow-hidden">
                 <img className = "w-10 h-10" src={props.userProfile.avatar ? authServerEndpoint + props.userProfile.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
-                <div className=" flex place-content-end pr-2 border-2 border-dotted border-slate-700 w-full flex-row items-center">
-                    <div className="pr-4 text-xl">
+                <div className=" flex place-content-end pr-2  w-full flex-row items-center">
+                    <div className="pr-4 text-2xl text-slate-700">
                         <FontAwesomeIcon onClick = {showUpdateProfileModal} icon={faCog}/>
                     </div>
-                    <div className="pr-4 text-xl">
+                    <div className="pr-4 text-2xl text-slate-700">
                         <FontAwesomeIcon onClick = {logout} icon={faSignOut}/>
                     </div>
                 </div>
@@ -176,7 +176,7 @@ function Sidebar (props) {
 
                         )
                     }
-                    <div className="flex flex-row place-content-end p-4 text-3xl text-slate-600 mr-2 sticky bottom-0">
+                    <div className="flex flex-row place-content-end p-4 text-3xl text-slate-600  sticky bottom-0">
                         <FontAwesomeIcon  onClick={showAddContactModal} icon={faPlusCircle}/>
                     </div>
                 </div>

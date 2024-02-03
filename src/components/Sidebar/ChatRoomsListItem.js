@@ -4,7 +4,7 @@ function ChatRoomsListItem (props) {
 
     const authServerEndpoint = 'http://127.0.0.1:8000';
     const debugPrefix = "CHATROOM_LIST_ITEM:::::";
-    const [className,setClassName] = useState("flex border-b-slate-100 border-b-[1px] p-1 min-w-0 gap-x-4");
+    const [className,setClassName] = useState("flex border-b-slate-100 border-b-[1px] p-1 min-w-0 gap-x-4 hover:bg-slate-200 rounded-md");
 
 
     const handleChatRoomSelection = () => {
@@ -18,7 +18,7 @@ function ChatRoomsListItem (props) {
                 setClassName("flex border-b-slate-100 border-b-[1px] p-1 min-w-0 gap-x-4 rounded-md bg-slate-200");
             }
             else{
-                setClassName("flex border-b-slate-100 border-b-[1px] p-1 min-w-0 gap-x-4 bg-slate-50");
+                setClassName("flex border-b-slate-100 border-b-[1px] p-1 min-w-0 gap-x-4 bg-slate-50 hover:bg-slate-200 rounded-md");
             }
         }
     },[props.currentChatRoom])

@@ -3,7 +3,7 @@
 function Message (props) {
 
     return (
-        <div className={props.senderId == props.userId ? " border-2 border-dotted m-2 p-2 float-right clear-left" : " border-2 border-dotted m-2 p-2 float-left clear-right"}>
+        <div className={props.senderId == props.userId ? " rounded-xl bg-white text-slate-800 m-2 p-2 float-right clear-left" : "rounded-xl bg-slate-300 text-black m-2 p-2 float-left clear-right"}>
           <p>{props.message} </p>
         </div>
     )

@@ -4,7 +4,8 @@ import useWebSocket, { ReadyState } from 'react-use-websocket';
 
 import Message from './Message';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faComments } from '@fortawesome/free-solid-svg-icons';
+import { faComment, faComments, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import BackgroundComponent from './Background';
 
 
 function ChatRoom (props) {
@@ -176,42 +177,45 @@ function ChatRoom (props) {
             {!props.chatRoom && 
               <div className="h-full flex flex-col items-center justify-center">
                 <div className="text-9xl mb-6 text-slate-600">
-                  <FontAwesomeIcon icon={faComments}/>                  
+                  <FontAwesomeIcon icon={faPaperPlane}/>                  
                 </div>
-                <div className="text-4xl text-slate-600">
+                <div className="text-2xl text-slate-600">
                     Select or add a chatroom
                 </div>  
               </div>
             }
         
             {props.chatRoom && 
-              <div className="flex flex-col h-full space-y-2">
-                <div class="flex flex-row mt-2 pl-4 gap-x-4 items-center   border-2 border-dotted border-slate-700 h-[8%]">
-                        <img className=" w-10 h-10" src={props.chatRoom.avatar ? authServerEndpoint + props.chatRoom.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
-                        <div>
-                          <div className="">{props.chatRoom.name}</div>
-                          <div className="text-sm text-slate-700">
-                            {showIsTyping ? "typing..." :  userActivityStatus}
+              <>
+                <div className="flex flex-col h-full space-y-2">
+                  <div class="flex flex-row mt-2 pl-4 gap-x-4 items-center h-[8%]">
+                          <img className=" w-10 h-10" src={props.chatRoom.avatar ? authServerEndpoint + props.chatRoom.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
+                          <div>
+                            <div className="">{props.chatRoom.name}</div>
+                            <div className="text-sm text-slate-700">
+                              {showIsTyping ? "typing..." :  userActivityStatus}
+                            </div>
                           </div>
-                        </div>
 
-              </div>
+                  </div>
 
-              <div class="border-2 border-dotted border-slate-700 h-[80%]" id="chat-log">
-                {
-                  chatLog.map((message) => (
-                      message
-                  ))
-                }
-              </div>
+                  <div className=" border-2 border-slate-200 rounded-lg bg-slate-200 h-[80%]" id="chat-log">
 
-              <div className=" flex items-center border-2 border-dotted border-slate-700 h-[7%]">
-                  <form className=" flex flex-row items-center place-content-center w-full">
-                    <input className=" p-2 h-8 w-[55%] mr-6 border-2 border-slate-400 rounded" id="message" type="text" onKeyDown={handleKeyPress} placeholder='type your messsage'/>
-                    <input className="p-1 w-24 rounded border-2 border-slate-300 hover:bg-slate-300" type="submit" value="Send" onClick={handleMessageSubmit}></input>
-                  </form>
-              </div>
-          </div> 
+                    {
+                      chatLog.map((message) => (
+                          message
+                      ))
+                    }
+                  </div>
+
+                  <div className=" flex items-center  h-[7%]">
+                      <form className=" flex flex-row items-center place-content-center w-full">
+                        <input className=" p-4 h-8 w-[55%] mr-6 border-2 border-slate-600 rounded-xl" id="message" type="text" onKeyDown={handleKeyPress} placeholder='type your messsage'/>
+                        <FontAwesomeIcon className = "text-3xl rotate-12 text-slate-600 hover:text-slate-400" onClick={handleMessageSubmit} icon={faPaperPlane} />
+                      </form>
+                  </div>
+                </div> 
+              </>
           }
         </>
   );
