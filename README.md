@@ -21,8 +21,6 @@ This repository is a `react` project to develop UI for the texter application. T
 
 #### Screenshots
 
-![home page](/screenshots/texter-home-screen.png) 
-![chat](/screenshots/texter-chat.png) 
 
 #### Folder structure:
 * src/
