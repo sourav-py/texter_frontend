@@ -1,11 +1,10 @@
 import { useEffect, useState, useRef } from 'react';
-import '../../static/css/main.css';
 
 function ChatRoomsListItem (props) {
 
-    const authServerEndpoint = 'https://base64dev.pythonanywhere.com';
+    const authServerEndpoint = 'http://127.0.0.1:8000';
     const debugPrefix = "CHATROOM_LIST_ITEM:::::";
-    const [className,setClassName] = useState("chatroom-list-item");
+    const [className,setClassName] = useState("flex border-b-slate-100 border-b-[1px] p-1 min-w-0 gap-x-4 hover:bg-slate-200 rounded-md");
 
 
     const handleChatRoomSelection = () => {
@@ -16,26 +15,21 @@ function ChatRoomsListItem (props) {
     useEffect(() => {
         if(props.currentChatRoom){
             if(props.currentChatRoom.id == props.chatroom.id){
-                setClassName("chatroom-list-item-selected");
+                setClassName("flex border-b-slate-100 border-b-[1px] p-1 min-w-0 gap-x-4 rounded-md bg-slate-200");
             }
             else{
-                setClassName("chatroom-list-item");
+                setClassName("flex border-b-slate-100 border-b-[1px] p-1 min-w-0 gap-x-4 bg-slate-50 hover:bg-slate-200 rounded-md");
             }
         }
     },[props.currentChatRoom])
    
    return (
-        <div className={className} onClick={handleChatRoomSelection}>
-            <div class="chatroom-list-item-avatar-wrapper">
-                <img class="chatroom-list-item-avatar" src={props.chatroom.avatar ? authServerEndpoint + props.chatroom.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
-            </div>
-            <div class="chatroom-list-item-name-message-wrapper">
-                <div class="chatroom-list-item-name">
-                    <p>{props.chatroom.name}</p>
-                </div>
-                <div class="chatroom-list-item-lastmessage">
-                </div>
-            </div>
+        <div className= {className} onClick={handleChatRoomSelection}>
+            <img className="h-10 w-10 flex-none rounded-full bg-gray-50" src={props.chatroom.avatar ? authServerEndpoint + props.chatroom.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
+            <div class="min-w-0 flex-auto">
+                <p class="text-sm font-semibold leading-6 text-gray-800">{props.chatroom.name}</p>
+                <p class=" truncate text-xs leading-5 text-gray-500">leslie.alexander@example.com</p>
+            </div> 
         </div>
    ) 
 }

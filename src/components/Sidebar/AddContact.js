@@ -1,11 +1,10 @@
 import { useState } from "react";
 import ContactPreview from "./ContactPreview";
 import { Button } from "react-bootstrap";
-import '../../static/css/modal.css';
 
 function AddContact (props) {
 
-    const authServerEndpoint = 'https://base64dev.pythonanywhere.com/';
+    const authServerEndpoint = 'http://127.0.0.1:8000/';
     const [phoneNumber,setPhoneNumber] = useState(null);
     const [validPhoneNumber,setValidPhoneNumber] = useState(false);
     const [profile,setProfile] = useState(null);

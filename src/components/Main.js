@@ -3,14 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import DummyLogin from './login/DummyLogin';
 import Sidebar from './Sidebar/Sidebar';
 
-import '../static/css/main.css';
 import ChatRoom from './chatroom/ChatRoom';
 
 
 function Main () {
 
     console.log("----MAIN-----")
-    const authServerEndpoint = 'https://base64dev.pythonanywhere.com/';
+    const authServerEndpoint = 'http://127.0.0.1:8000/';
     const debugPrefix = "MAIN:::::";
     const navigate = useNavigate();
    
@@ -137,10 +136,14 @@ function Main () {
     
     if(userProfile){
         return (
-            <div className="container-wrapper">
-                <div class="container">
-                    <Sidebar currentChatRoom = {currentChatRoom} setCurrentChatRoom = {setCurrentChatRoom} userProfile={userProfile} setUserProfile = {setUserProfile} lastMessageTimeStamp = {lastMessageTimestamp} setLastMessageTimestamp = {setLastMessageTimestamp}/>
-                    <ChatRoom chatRoomId = {currentChatRoomId} chatRoom={currentChatRoom} userId = {userProfile.id} handleLastMessageTimestampUpdate = {handleLastMessageTimestampUpdate}/> 
+            <div className="h-[100vh] w-[100vw] flex justify-center items-center bg-slate-100">
+                <div className=" bg-white h-[92vh] w-[85vw] flex flex-row gap-2 place-content-around  border-2 rounded-md border-slate-200">
+                    <div className="flex flex-col  place-content-around w-[21%] ">
+                        <Sidebar currentChatRoom = {currentChatRoom} setCurrentChatRoom = {setCurrentChatRoom} userProfile={userProfile} setUserProfile = {setUserProfile} lastMessageTimeStamp = {lastMessageTimestamp} setLastMessageTimestamp = {setLastMessageTimestamp}/>
+                    </div>
+                    <div className="w-[76%]">
+                        <ChatRoom chatRoomId = {currentChatRoomId} chatRoom={currentChatRoom} userId = {userProfile.id} handleLastMessageTimestampUpdate = {handleLastMessageTimestampUpdate}/> 
+                    </div>
                 </div> 
             </div>
         )

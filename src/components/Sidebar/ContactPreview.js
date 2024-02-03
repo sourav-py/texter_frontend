@@ -1,8 +1,7 @@
-import '../../static/css/contact.css';
 
 function ContactPreview (props) {
 
-    const authServerEndpoint = 'https://base64dev.pythonanywhere.com';
+    const authServerEndpoint = 'http://127.0.0.1:8000';
 
    return (
         <div class="contact-preview">

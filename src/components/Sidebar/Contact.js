@@ -1,10 +1,8 @@
 import { useEffect, useState, useRef } from 'react';
-import '../../static/css/main.css';
-
 
 function Contact (props) {
 
-    const authServerEndpoint = 'https://base64dev.pythonanywhere.com';
+    const authServerEndpoint = 'http://127.0.0.1:8000';
 
    return (
         <div class="chatroom-list-item">

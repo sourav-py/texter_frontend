@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import '../../static/css/sidebar.css';
-
 function UpdateProfile(props) {
 
-    const backendServerEndpoint = 'https://base64dev.pythonanywhere.com';
+    const backendServerEndpoint = 'http://127.0.0.1:8000';
     const navigate = useNavigate();
     const [userName,setUserName] = useState(null);
     const [userBio,setUserBio] = useState(null);

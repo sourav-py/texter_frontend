@@ -3,10 +3,9 @@ import React, { useState , useEffect } from 'react';
 import useWebSocket, { ReadyState } from 'react-use-websocket';
 
 import Message from './Message';
-import '../../static/css/main.css';
-import '../../static/css/chatroom.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faComments } from '@fortawesome/free-solid-svg-icons';
+import { faComment, faComments, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import BackgroundComponent from './Background';
 
 
 function ChatRoom (props) {
@@ -19,7 +18,7 @@ function ChatRoom (props) {
   const [showIsTyping,setShowIsTyping] = useState(false);
   const [canInvokeTypingMessage,setCanInvokeTypingMessage] = useState(true);
 
-  const authServerEndpoint = 'https://base64dev.pythonanywhere.com/';
+  const authServerEndpoint = 'http://127.0.0.1:8000/';
                                       
 
   const { sendMessage, lastMessage, readyState } = useWebSocket('ws://127.0.0.1:8000'
@@ -176,52 +175,47 @@ function ChatRoom (props) {
     <>
 
             {!props.chatRoom && 
-              <div className="start-chatting-wrapper">
-                <div className="start-chatting">
-                  <FontAwesomeIcon icon={faComments}/>                  
+              <div className="h-full flex flex-col items-center justify-center">
+                <div className="text-9xl mb-6 text-slate-600">
+                  <FontAwesomeIcon icon={faPaperPlane}/>                  
                 </div>
-                <div className="welcome-text">
-                    Happy texting....
+                <div className="text-2xl text-slate-600">
+                    Select or add a chatroom
                 </div>  
               </div>
             }
         
             {props.chatRoom && 
-              <div className="chatroom">
-                <div class="chatroom-info">
-                  {props.chatRoom &&
-                      <>
-                      <div className="chatroom-avatar-wrapper">
-                        <img className="chatroom-avatar" src={props.chatRoom.avatar ? authServerEndpoint + props.chatRoom.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
-                      </div>
-                        <div className="chatroom-name-wrapper">
-                          <div className="chatroom-name">{props.chatRoom.name}</div>
-                          <div className="activity-status">
-                            {showIsTyping ? "typing..." :  userActivityStatus}
+              <>
+                <div className="flex flex-col h-full space-y-2">
+                  <div class="flex flex-row mt-2 pl-4 gap-x-4 items-center h-[8%]">
+                          <img className=" w-10 h-10" src={props.chatRoom.avatar ? authServerEndpoint + props.chatRoom.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
+                          <div>
+                            <div className="">{props.chatRoom.name}</div>
+                            <div className="text-sm text-slate-700">
+                              {showIsTyping ? "typing..." :  userActivityStatus}
+                            </div>
                           </div>
-                        </div>
 
-                        <div className="chatroom-options">
-                        </div>
-                      </>
-                  }
-              </div>
+                  </div>
 
-              <div class="messages-window" id="chat-log">
-                {
-                  chatLog.map((message) => (
-                      message
-                  ))
-                }
-              </div>
+                  <div className=" border-2 border-slate-200 rounded-lg bg-slate-200 h-[80%]" id="chat-log">
 
-              <div class="message-input-window">
-                  <form className="message-input-wrapper">
-                    <input className="message-input" id="message" type="text" onKeyDown={handleKeyPress} placeholder='type your messsage'/>
-                    <input className="send-message-btn" type="submit" value="Send" onClick={handleMessageSubmit}></input>
-                  </form>
-              </div>
-          </div> 
+                    {
+                      chatLog.map((message) => (
+                          message
+                      ))
+                    }
+                  </div>
+
+                  <div className=" flex items-center  h-[7%]">
+                      <form className=" flex flex-row items-center place-content-center w-full">
+                        <input className=" p-4 h-8 w-[55%] mr-6 border-2 border-slate-600 rounded-xl" id="message" type="text" onKeyDown={handleKeyPress} placeholder='type your messsage'/>
+                        <FontAwesomeIcon className = "text-3xl rotate-12 text-slate-600 hover:text-slate-400" onClick={handleMessageSubmit} icon={faPaperPlane} />
+                      </form>
+                  </div>
+                </div> 
+              </>
           }
         </>
   );
