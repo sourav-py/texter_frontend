@@ -112,6 +112,7 @@ function Sidebar (props) {
     }
 
     const hideUpdateProfileModal = () => {
+        console.log("hiding update profile modal!!!");
         setupdateProfileModalDisplay("none");
     }
 
@@ -185,7 +186,10 @@ function Sidebar (props) {
             <div className="hidden">
                 <AddContact  currentUser = {props.userProfile} addContactModalDisplay = {addContactModalDisplay} showAddContactModal = {showAddContactModal} hideAddContactModal = {hideAddContactModal} setAddContactModalDisplay = {setAddContactModalDisplay} setLastMessageTimestamp = {props.setLastMessageTimestamp}/>
             </div>
-            <div className="hidden">
+
+            <div className={updateProfileModalDisplay === "block" ? "fixed inset-0 bg-slate-300 opacity-40" : "hidden"} onClick={hideUpdateProfileModal} ></div>
+
+            <div className={updateProfileModalDisplay === "block" ? "fixed inset-0 flex justify-center items-center" : "hidden"}>
                 <UpdateProfile  setUserProfile={props.setUserProfile} userProfile = {props.userProfile} updateProfileModalDisplay = {updateProfileModalDisplay} hideUpdateProfileModal={hideUpdateProfileModal}/>
             </div>
         </>
