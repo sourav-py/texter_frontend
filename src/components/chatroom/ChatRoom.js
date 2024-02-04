@@ -5,7 +5,6 @@ import useWebSocket, { ReadyState } from 'react-use-websocket';
 import Message from './Message';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment, faComments, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
-import BackgroundComponent from './Background';
 
 
 function ChatRoom (props) {
