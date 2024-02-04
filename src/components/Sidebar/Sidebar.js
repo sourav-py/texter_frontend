@@ -168,7 +168,7 @@ function Sidebar (props) {
                 </div>
             </div>
             <div className="h-[83%]  p-2 overflow-y-scroll no-scrollbar">
-                <div className=" flex flex-col gap-2">
+                <div className=" flex flex-col gap-1">
                     {
                         chatRoomsList.map((chatroom,index) => (
                                 <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>          

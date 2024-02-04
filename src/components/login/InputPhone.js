@@ -64,17 +64,17 @@ function InputPhone(){
 
     return (
         <div className="flex flex-row h-[100vh]">
-            <div className="grid grid-cols-3 gap-4 p-6 bg-slate-300 w-[50%]">
+            <div className="grid grid-cols-3 gap-4 p-6 w-[50%]">
                 <FloatingIcons/>
             </div>
             <div className="flex justify-center items-center w-[50%] bg-white">
                 {!otpSent && 
-                    <form className="w-[70%]" onSubmit={handleSubmit}>
-                        <div className="flex justify-center p-2 mb-6  text-5xl text-slate-700">
+                    <form className="w-[80%]" onSubmit={handleSubmit}>
+                        <div className="flex justify-center p-2 mb-6  text-6xl text-slate-800">
                             Let's start chatting...
                         </div>
-                        <div className="p-2 mb-6 border-dotted flex justify-center">
-                            <input className="border-[1px] w-3/4 p-2 rounded-md placeholder:text-slate-400 text-slate-700 border-slate-200 focus:outline-none focus:border-slate-500 focus:ring-slate-500 focus:ring-1" type="tel" id="phone" placeholder="Enter phone number" required onChange={handleInput}></input>
+                        <div className="p-2 mb-6  flex justify-center">
+                            <input className="border-[2px] w-3/4 p-2 rounded-md placeholder:text-slate-400 text-slate-700 border-slate-500 focus:outline-none focus:border-slate-500 focus:ring-slate-500 focus:ring-1" type="tel" id="phone" placeholder="Enter phone number" required onChange={handleInput}></input>
                         </div>
                         <div className="p-2 m-2 flex justify-center items-center">
                             <button className="rounded-lg h-10 w-24 border-2 border-slate-400 hover:bg-slate-400 hover:text-white" type="submit">Send otp</button>
