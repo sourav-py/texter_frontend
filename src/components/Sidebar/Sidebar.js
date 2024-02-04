@@ -112,6 +112,7 @@ function Sidebar (props) {
     }
 
     const hideUpdateProfileModal = () => {
+        console.log("hiding update profile modal!!!");
         setupdateProfileModalDisplay("none");
     }
 
@@ -168,7 +169,7 @@ function Sidebar (props) {
                 </div>
             </div>
             <div className="h-[83%]  p-2 overflow-y-scroll no-scrollbar">
-                <div className=" flex flex-col gap-2">
+                <div className=" flex flex-col gap-1">
                     {
                         chatRoomsList.map((chatroom,index) => (
                                 <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>          
@@ -185,7 +186,10 @@ function Sidebar (props) {
             <div className="hidden">
                 <AddContact  currentUser = {props.userProfile} addContactModalDisplay = {addContactModalDisplay} showAddContactModal = {showAddContactModal} hideAddContactModal = {hideAddContactModal} setAddContactModalDisplay = {setAddContactModalDisplay} setLastMessageTimestamp = {props.setLastMessageTimestamp}/>
             </div>
-            <div className="hidden">
+
+            <div className={updateProfileModalDisplay === "block" ? "fixed inset-0 bg-slate-300 opacity-40" : "hidden"} onClick={hideUpdateProfileModal} ></div>
+
+            <div className={updateProfileModalDisplay === "block" ? "fixed inset-0 flex justify-center items-center" : "hidden"}>
                 <UpdateProfile  setUserProfile={props.setUserProfile} userProfile = {props.userProfile} updateProfileModalDisplay = {updateProfileModalDisplay} hideUpdateProfileModal={hideUpdateProfileModal}/>
             </div>
         </>
