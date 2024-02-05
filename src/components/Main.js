@@ -136,8 +136,8 @@ function Main () {
     
     if(userProfile){
         return (
-            <div className="h-[100vh] w-[100vw] flex justify-center items-center bg-slate-100">
-                <div className=" bg-white h-[92vh] w-[85vw] flex flex-row gap-2 place-content-around  border-2 rounded-md border-slate-200">
+            <div className="h-[100vh] w-[100vw] flex justify-center items-center bg-slate-300">
+                <div className=" bg-white h-[92vh] w-[85vw] rounded-lg flex flex-row gap-2 place-content-around">
                     <div className="flex flex-col  place-content-around w-[21%] ">
                         <Sidebar currentChatRoom = {currentChatRoom} setCurrentChatRoom = {setCurrentChatRoom} userProfile={userProfile} setUserProfile = {setUserProfile} lastMessageTimeStamp = {lastMessageTimestamp} setLastMessageTimestamp = {setLastMessageTimestamp}/>
                     </div>

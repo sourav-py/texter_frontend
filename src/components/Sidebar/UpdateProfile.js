@@ -95,18 +95,24 @@ function UpdateProfile(props) {
 
 
     return (
-        <div className=" flex flex-col gap-y-4  w-[25vw] border-slate-300 border-2 rounded-lg h-[50vh] bg-white">
+        <div className=" flex flex-col gap-y-4  w-[23vw] border-slate-300 border-2 rounded-lg h-[50vh] bg-white">
             <div>
-                <FontAwesomeIcon className="float-right mt-4 mr-4 text-xl" onClick={props.hideUpdateProfileModal} icon={faClose}/>
+                <FontAwesomeIcon className="float-right rounded-full p-1 hover:bg-slate-200 mt-2 mr-4 text-xl" onClick={props.hideUpdateProfileModal} icon={faClose}/>
             </div>
-            <form className=" h-[80%] border-2 border-black clear-end"  onSubmit={handleProfileUpdate}>
-                <label>Phone</label>
-                <input type="tel" value={props.userProfile.phone} disabled/>
-                <label>Name</label>
-                <input type="text" onChange={handleNameChange} value={userName}/>
-                <label>bio</label>
-                <input type="text"  disabled = {false} onChange={handleBioChange} value={userBio}/>
-                <button type="submit">Update</button>
+            <form className=" h-[80%] flex flex-col items-center clear-end"  onSubmit={handleProfileUpdate}>
+                <div className="mt-4">
+                    <label className="block text-md mb-1">Phone</label>
+                    <input disabled className="w-full rounded-md py-1 pl-2 shadow-sm text-gray-800 ring-1 ring-inset ring-gray-300" type="tel" value={props.userProfile.phone}/>
+                </div>
+                <div className="mt-4">
+                    <label className="block text-md mb-1">Name</label>
+                    <input className="w-full border-0 outline-none rounded-md py-1 pl-2 shadow-sm text-gray-800 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-slate-500" type="text" onChange={handleNameChange} value={userName}/>
+                </div>
+                <div className="mt-4">
+                    <label className="block text-md mb-1">bio</label>
+                    <input className="w-full border-0 outline-none rounded-md py-1 pl-2 shadow-sm text-gray-800 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-slate-500" type="text"  disabled = {false} onChange={handleBioChange} value={userBio}/>
+                </div>
+                <button className="block w-20 h-8 rounded-md hover:bg-slate-500 bg-slate-700 text-white mt-6" type="submit">Update</button>
             </form>
         </div>
     )
