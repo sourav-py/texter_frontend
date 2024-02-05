@@ -100,7 +100,6 @@ function AddContact (props) {
                     </div>
                 </form>
             </div>
-            <div className={props.addContactModalDisplay === "block" ? "overlay" : "overlay-hidden"} onClick={props.hideAddContactModal}></div>
         </div>
     )
 }

@@ -27,8 +27,8 @@ function ChatRoomsListItem (props) {
         <div className= {className} onClick={handleChatRoomSelection}>
             <img className="h-10 w-10 flex-none rounded-full bg-gray-50" src={props.chatroom.avatar ? authServerEndpoint + props.chatroom.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
             <div class="min-w-0 flex-auto">
-                <p class="text-sm font-semibold leading-6 text-gray-800">{props.chatroom.name}</p>
-                <p class=" truncate text-xs leading-5 text-gray-500">leslie.alexander@example.com</p>
+                <p class="text-sm font-semibold leading-6">{props.chatroom.name}</p>
+                <p class=" truncate text-xs leading-5 text-gray-600">leslie.alexander@example.com</p>
             </div> 
         </div>
    ) 
