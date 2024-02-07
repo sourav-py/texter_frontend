@@ -20,18 +20,24 @@ This repository is a `react` project to develop UI for the texter application. T
 - Typing indicator (The user that you are currently chatting with is typing a message).
 
 #### Screenshots
-<p align="center">Phone number input and verification</p>
+<p align="center">Phone number input</p>
 <p align="center">
-<img src="https://github.com/sourav-py/texter_frontend/blob/main/screenshots/texter-phone-input.png" width="40%">
-  <img src="https://github.com/sourav-py/texter_frontend/blob/main/screenshots/texter-otp-input.png" width="40%">
+  <img src="https://github.com/sourav-py/texter_frontend/blob/main/screenshots/texter-phone-input.png" width="90%">
 </p>
+
+<p align="center">OTP based verification</p>
+<p align="center">
+  <img src="https://github.com/sourav-py/texter_frontend/blob/main/screenshots/texter-otp-input.png" width="90%">
+</p>
+
 <p align="center" >Landing page</p>
 <p align="center">
-<img src="https://github.com/sourav-py/texter_frontend/blob/main/screenshots/texter-home.png" width="70%">
+  <img src="https://github.com/sourav-py/texter_frontend/blob/main/screenshots/texter-home.png" width="90%">
 </p>
+
 <p align="center">Chatroom</p>
 <p align="center">
-<img src="https://github.com/sourav-py/texter_frontend/blob/main/screenshots/texter-chat.png" width="70%">
+  <img src="https://github.com/sourav-py/texter_frontend/blob/main/screenshots/texter-chat.png" width="90%">
 </p>
 
 #### Folder structure:
