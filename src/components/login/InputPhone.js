@@ -6,7 +6,7 @@ import FloatingIcons from "./FloatingIcons";
 
 function InputPhone(){
 
-    const backendServerEndpoint = 'http://127.0.0.1:8000';
+    const backendServerEndpoint = 'https://texter-backend-jp24ejwc8-sourav-pys-projects.vercel.app';
     const navigate = useNavigate();
     const [phoneNumber,setPhoneNumber] = useState(null);
     const [otpSent,setOtpSent] = useState(false);
