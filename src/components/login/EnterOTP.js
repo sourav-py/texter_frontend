@@ -36,9 +36,6 @@ function EnterOTP(props) {
         .then(
            response => {
             if(response.status === 200){
-                if(!props.newProfile){
-                    navigate('/');
-                }
 
                 response.json()
                 .then(
@@ -47,6 +44,8 @@ function EnterOTP(props) {
                         setErrorMsg(null);
                     }
                 )
+
+                navigate('/');
             }
             else{
                 response.json()
@@ -65,9 +64,6 @@ function EnterOTP(props) {
         )
     } 
 
-    const handleProfileUpdateSkip = () => {
-        navigate('/');
-    }
     
     return(
         <>
@@ -86,12 +82,6 @@ function EnterOTP(props) {
                         {errorMsg}
                     </div>
                 </form>
-            }
-            {userProfile && props.newProfile && 
-                <div>
-                    <UpdateProfile userProfile = {userProfile} />
-                    <a onClick={handleProfileUpdateSkip}>skip</a>
-                </div>
             }
         </>
     )
