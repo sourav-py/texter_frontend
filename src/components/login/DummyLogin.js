@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Main from "../Main";
 
 function DummyLogin() {
-    const backendServerEndpoint = 'https://texter-backend-jp24ejwc8-sourav-pys-projects.vercel.app';
+    const backendServerEndpoint = 'https://texter-backend.vercel.app';
     const debugPrefix = "DUMMY_LOGIN:::::";
     const navigate = useNavigate();
     const [phoneNumber,setPhoneNumber] = useState(null);

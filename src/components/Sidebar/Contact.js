@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 
 function Contact (props) {
 
-    const authServerEndpoint = 'https://texter-backend-jp24ejwc8-sourav-pys-projects.vercel.app';
+    const authServerEndpoint = 'https://texter-backend.vercel.app';
 
    return (
         <div class="chatroom-list-item">

@@ -6,7 +6,7 @@ import UpdateProfile from "../Sidebar/UpdateProfile";
 
 function EnterOTP(props) {
 
-    const backendServerEndpoint = 'https://texter-backend-jp24ejwc8-sourav-pys-projects.vercel.app';
+    const backendServerEndpoint = 'https://texter-backend.vercel.app';
     const navigate = useNavigate();
     const [otp,setOtp] = useState(null);
     const [userProfile,setUserProfile] = useState(null);

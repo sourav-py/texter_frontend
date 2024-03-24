@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 function Test() {
 
-    const backendServerEndpoint = 'https://texter-backend-jp24ejwc8-sourav-pys-projects.vercel.app';
+    const backendServerEndpoint = 'https://texter-backend.vercel.app';
     //const backendServerEndpoint = 'http://127.0.0.1:8000';
     useEffect(() => {
         fetch(backendServerEndpoint + '/auth/test/',{

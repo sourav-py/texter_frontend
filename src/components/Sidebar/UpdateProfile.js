@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function UpdateProfile(props) {
 
-    const backendServerEndpoint = 'https://texter-backend-jp24ejwc8-sourav-pys-projects.vercel.app';
+    const backendServerEndpoint = 'https://texter-backend.vercel.app';
     const navigate = useNavigate();
     const [userName,setUserName] = useState(null);
     const [userBio,setUserBio] = useState(null);
