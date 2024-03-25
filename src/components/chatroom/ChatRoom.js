@@ -17,7 +17,7 @@ function ChatRoom (props) {
   const [showIsTyping,setShowIsTyping] = useState(false);
   const [canInvokeTypingMessage,setCanInvokeTypingMessage] = useState(true);
 
-  const authServerEndpoint = 'https://texter-backend-jp24ejwc8-sourav-pys-projects.vercel.app/';
+  const authServerEndpoint = 'http://127.0.0.1:8000/';
                                       
 
   const { sendMessage, lastMessage, readyState } = useWebSocket('ws://127.0.0.1:8000'

@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 
 function ChatRoomsListItem (props) {
 
-    const authServerEndpoint = 'https://texter-backend-jp24ejwc8-sourav-pys-projects.vercel.app';
+    const authServerEndpoint = 'http://127.0.0.1:8000';
     const debugPrefix = "CHATROOM_LIST_ITEM:::::";
     const [className,setClassName] = useState("flex bg-slate-100 p-1 min-w-0 gap-x-4 hover:bg-slate-200 rounded-sm");
 

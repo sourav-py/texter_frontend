@@ -9,7 +9,7 @@ import ChatRoom from './chatroom/ChatRoom';
 function Main () {
 
     console.log("----MAIN-----")
-    const authServerEndpoint = 'https://texter-backend-jp24ejwc8-sourav-pys-projects.vercel.app/';
+    const authServerEndpoint = 'http://127.0.0.1:8000/';
     const debugPrefix = "MAIN:::::";
     const navigate = useNavigate();
    

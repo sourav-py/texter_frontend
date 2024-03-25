@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Sidebar (props) {
 
-    const authServerEndpoint = 'https://texter-backend-jp24ejwc8-sourav-pys-projects.vercel.app/';
+    const authServerEndpoint = 'http://127.0.0.1:8000/';
     const navigate = useNavigate();
     const debugPrefix = "------SIDEBAR-----";
     const [chatRoomsList,setChatRoomsList] = useState(null);

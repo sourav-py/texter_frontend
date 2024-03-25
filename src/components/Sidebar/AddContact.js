@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 
 function AddContact (props) {
 
-    const authServerEndpoint = 'https://texter-backend-jp24ejwc8-sourav-pys-projects.vercel.app/';
+    const authServerEndpoint = 'http://127.0.0.1:8000/';
     const [phoneNumber,setPhoneNumber] = useState(null);
     const [validPhoneNumber,setValidPhoneNumber] = useState(false);
     const [profile,setProfile] = useState(null);
