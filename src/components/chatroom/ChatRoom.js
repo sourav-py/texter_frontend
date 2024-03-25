@@ -208,9 +208,9 @@ function ChatRoom (props) {
                   </div>
 
                   <div className=" flex items-center  h-[7%]">
-                      <form className=" flex flex-row items-center place-content-center w-full">
+                      <form className=" flex flex-row items-center place-content-center w-full" onSubmit={handleMessageSubmit}>
                         <input className=" p-4 h-8 w-[55%] mr-6 border-2 border-slate-600 rounded-xl" id="message" type="text" onKeyDown={handleKeyPress} placeholder='type your messsage'/>
-                        <FontAwesomeIcon className = "text-3xl rotate-12 text-slate-600 hover:text-slate-400" onClick={handleMessageSubmit} icon={faPaperPlane} />
+                        <button className="w-20 h-8 rounded-lg hover:bg-slate-500 bg-slate-700 text-white" type="submit">Send</button>
                       </form>
                   </div>
                 </div> 

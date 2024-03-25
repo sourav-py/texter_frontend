@@ -1,6 +1,8 @@
 import { useState } from "react";
 import ContactPreview from "./ContactPreview";
 import { Button } from "react-bootstrap";
+import { faClose } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function AddContact (props) {
 
@@ -82,25 +84,25 @@ function AddContact (props) {
     }
 
     return (
-        <div>
-            <div className = {props.addContactModalDisplay === "block" ? "add-contact-modal" : "add-contact-modal-hidden"}>
-                <span class="close-add-contact-modal" onClick={props.hideAddContactModal}>&times;</span>
-                <form  className="add-contact-form" onSubmit={handleFormSubmission}>
-                    <div className="form-input-review-wrapper">
-                        <div className="add-contact-heading">
+            <div className=" flex flex-col gap-y-4  w-[21vw] border-slate-300 border-2 rounded-lg h-[50vh] bg-white">
+                <div>
+                    <FontAwesomeIcon className="float-right rounded-full p-1 hover:bg-slate-200 mt-2 mr-4 text-xl" onClick={props.hideAddContactModal} icon={faClose}/>
+                </div>
+                <form  className=" h-[80%] flex flex-col items-center clear-end" onSubmit={handleFormSubmission}>
+                    <div className="h-[70%]">
+                        <div className="text-xl font-mono mb-4">
                             Add Contact
                         </div>
-                        <input className="phone-input"  type="tel" id="phone-input" value = {phoneNumber} onChange = {handlePhoneNumberInput} placeholder='Enter phone number'></input>
+                        <input className="w-full rounded-md py-1 pl-2 shadow-sm text-gray-800 ring-1 ring-inset ring-gray-300" type="tel"  type="tel" id="phone-input" value = {phoneNumber} onChange = {handlePhoneNumberInput} placeholder='Enter phone number'></input>
                         {profile && <ContactPreview profile={profile}/>} 
-                        <div className="participation-creation-error">{errorMsg}</div>
+                        <div className="">{errorMsg}</div>
                     </div>
-                    <div className="chat-btn-wrapper">
-                        { !profile && <input className="chat-btn" type="submit" value="Chat" disabled/>}
-                        { profile && <input className="chat-btn" type="submit" value="Chat"/>}
+                    <div className="h-[30%]">
+                        { !profile && <input className="block w-20 h-8 rounded-md hover:bg-slate-500 bg-slate-700 text-white mt-6" type="submit" value="Chat" disabled/>}
+                        { profile && <input className="block w-20 h-8 rounded-md hover:bg-slate-500 bg-slate-700 text-white mt-6" type="submit" value="Chat"/>}
                     </div>
                 </form>
             </div>
-        </div>
     )
 }
 
