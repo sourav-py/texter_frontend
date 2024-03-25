@@ -20,7 +20,7 @@ function ChatRoom (props) {
   const authServerEndpoint = 'https://texter-backend.vercel.app/';
                                       
 
-  const { sendMessage, lastMessage, readyState } = useWebSocket('ws://texter-backend.vercel.app'
+  const { sendMessage, lastMessage, readyState } = useWebSocket('wss://texter-backend.vercel.app'
                                         + '/ws/chat/'
                                         + (props.chatRoom && props.chatRoom.id)
                                         + '/?userId'
