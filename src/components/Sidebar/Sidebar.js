@@ -183,7 +183,9 @@ function Sidebar (props) {
                 </div>
             </div>
             
-            <div className='hidden'>
+            <div className={addContactModalDisplay === "block" ? "fixed inset-0 bg-slate-300 opacity-40" : "hidden"} onClick={hideAddContactModal} ></div>
+
+            <div className={addContactModalDisplay === "block" ? "fixed inset-0 flex justify-center items-center" : "hidden"}>
                 <AddContact  currentUser = {props.userProfile} addContactModalDisplay = {addContactModalDisplay} showAddContactModal = {showAddContactModal} hideAddContactModal = {hideAddContactModal} setAddContactModalDisplay = {setAddContactModalDisplay} setLastMessageTimestamp = {props.setLastMessageTimestamp}/>
             </div>
 
