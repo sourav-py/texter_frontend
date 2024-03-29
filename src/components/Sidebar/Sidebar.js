@@ -152,7 +152,7 @@ function Sidebar (props) {
    else{
     return (
         <>
-            <div className="flex flex-row space-x-10 pl-4 items-center  h-[9%] overflow-hidden">
+            <div className=" bg-white rounded-lg flex flex-row space-x-10 pl-4 items-center  h-[9%] overflow-hidden">
                 <img className = "w-10 h-10" src={props.userProfile.avatar ? authServerEndpoint + props.userProfile.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
                 <div className=" flex place-content-end pr-2  w-full flex-row items-center">
                     <div className="pr-4 text-2xl text-slate-700">
@@ -163,26 +163,27 @@ function Sidebar (props) {
                     </div>
                 </div>
             </div>
-            <div className="h-[6%] flex items-end">
-                <div className="text-lg text-slate-600 pl-3">
-                    Chats
+            <div className="bg-white rounded-lg h-[89%]">
+                <div className=" mt-2 mb-2 flex items-end">
+                    <div className="text-lg text-slate-600 pl-3">
+                        Chats
+                    </div>
                 </div>
-            </div>
-            <div className="h-[83%]  p-2 overflow-y-scroll no-scrollbar">
-                <div className=" flex flex-col gap-1">
-                    {
-                        chatRoomsList.map((chatroom,index) => (
-                                <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>          
-                                                    )
+                <div className="p-2 overflow-y-scroll no-scrollbar">
+                    <div className=" flex flex-col gap-1">
+                        {
+                            chatRoomsList.map((chatroom,index) => (
+                                    <ChatRoomsListItem key = {index} setCurrentChatRoom = {props.setCurrentChatRoom} chatroom={chatroom} currentChatRoom = {props.currentChatRoom}/>          
+                                                        )
 
-                        )
-                    }
-                    <div className="flex flex-row place-content-end p-4 text-3xl text-slate-600  sticky bottom-0">
-                        <FontAwesomeIcon  onClick={showAddContactModal} icon={faPlusCircle}/>
+                            )
+                        }
+                        <div className="flex flex-row place-content-end p-4 text-3xl text-slate-600  sticky bottom-0">
+                            <FontAwesomeIcon  onClick={showAddContactModal} icon={faPlusCircle}/>
+                        </div>
                     </div>
                 </div>
             </div>
-            
             <div className={addContactModalDisplay === "block" ? "fixed inset-0 bg-slate-300 opacity-40" : "hidden"} onClick={hideAddContactModal} ></div>
 
             <div className={addContactModalDisplay === "block" ? "fixed inset-0 flex justify-center items-center" : "hidden"}>

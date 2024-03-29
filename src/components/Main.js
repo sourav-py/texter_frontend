@@ -18,6 +18,7 @@ function Main () {
     const [currentChatRoomId,setCurrentChatRoomId] = useState(null);
     const [currentChatRoom,setCurrentChatRoom] = useState(null);
     const [lastMessageTimestamp,setLastMessageTimestamp] = useState(null);
+    
 
 
     const handleLastMessageTimestampUpdate = () => {
@@ -137,11 +138,11 @@ function Main () {
     if(userProfile){
         return (
             <div className="h-[100vh] w-[100vw] flex justify-center items-center bg-slate-300">
-                <div className=" bg-white h-[92vh] w-[85vw] rounded-lg flex flex-row gap-2 place-content-around">
-                    <div className="flex flex-col  place-content-around w-[21%] ">
+                <div className="h-[92vh] w-[85vw] flex flex-row place-content-around">
+                    <div className="flex flex-col h-full  place-content-around w-[22%] ">
                         <Sidebar currentChatRoom = {currentChatRoom} setCurrentChatRoom = {setCurrentChatRoom} userProfile={userProfile} setUserProfile = {setUserProfile} lastMessageTimeStamp = {lastMessageTimestamp} setLastMessageTimestamp = {setLastMessageTimestamp}/>
                     </div>
-                    <div className="w-[76%]">
+                    <div className=" h-full bg-white rounded-lg w-[76%]">
                         <ChatRoom chatRoomId = {currentChatRoomId} chatRoom={currentChatRoom} userId = {userProfile.id} handleLastMessageTimestampUpdate = {handleLastMessageTimestampUpdate}/> 
                     </div>
                 </div> 

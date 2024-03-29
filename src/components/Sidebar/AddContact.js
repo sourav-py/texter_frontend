@@ -90,10 +90,10 @@ function AddContact (props) {
                 </div>
                 <form  className=" h-[80%] flex flex-col items-center clear-end" onSubmit={handleFormSubmission}>
                     <div className="h-[70%]">
-                        <div className="text-xl font-mono mb-4">
+                        <div className="text-xl mb-4">
                             Add Contact
                         </div>
-                        <input className="w-full rounded-md py-1 pl-2 shadow-sm text-gray-800 ring-1 ring-inset ring-gray-300" type="tel"  type="tel" id="phone-input" value = {phoneNumber} onChange = {handlePhoneNumberInput} placeholder='Enter phone number'></input>
+                        <input className="w-full rounded-md py-1 pl-2 shadow-sm text-gray-800 ring-1 ring-inset ring-gray-300" type="tel" id="phone-input" value = {phoneNumber} onChange = {handlePhoneNumberInput} placeholder='Enter phone number'></input>
                         {profile && <ContactPreview profile={profile}/>} 
                         <div className="">{errorMsg}</div>
                     </div>
