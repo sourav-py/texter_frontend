@@ -95,7 +95,7 @@ function UpdateProfile(props) {
 
 
     return (
-        <div className=" flex flex-col gap-y-4  w-[21vw] border-slate-300 border-2 rounded-lg h-[50vh] bg-white">
+        <div className=" flex flex-col overflow-auto gap-y-4  w-[21vw] border-slate-300 border-2 rounded-lg h-[50vh] bg-white">
             <div>
                 <FontAwesomeIcon className="float-right rounded-full p-1 hover:bg-slate-200 mt-2 mr-4 text-xl" onClick={props.hideUpdateProfileModal} icon={faClose}/>
             </div>

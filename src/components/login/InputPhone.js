@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import EnterOTP from "./EnterOTP";
 import FloatingIcons from "./FloatingIcons";
@@ -11,6 +11,21 @@ function InputPhone(){
     const [phoneNumber,setPhoneNumber] = useState(null);
     const [otpSent,setOtpSent] = useState(false);
     const [newProfile,setNewProfile] = useState(false);
+    const [introText,setIntroText] = useState("");
+
+    useEffect(() => {
+        var fullIntroText = "Let's start texting ....";
+        var i = 0;
+        function typeWriter(){
+            if(i < fullIntroText.length){
+                i += 1;
+                //console.log("itr: ",i);
+                setIntroText(fullIntroText.substring(0,i));
+                setTimeout(typeWriter,50);
+            }
+        }
+        typeWriter();
+    },[])
 
 
     const handleInput = (event) => {
@@ -71,7 +86,7 @@ function InputPhone(){
                 {!otpSent && 
                     <form className="w-[80%]" onSubmit={handleSubmit}>
                         <div className="flex justify-center p-2 mb-6  text-6xl text-slate-800">
-                            Let's start chatting...
+                            {introText}
                         </div>
                         <div className="p-2 mb-6  flex justify-center">
                             <input className="border-[2px] w-3/4 p-2 rounded-md placeholder:text-slate-400 text-slate-700 border-slate-500 focus:outline-none focus:border-slate-500 focus:ring-slate-500 focus:ring-1" type="tel" id="phone" placeholder="Enter phone number" required onChange={handleInput}></input>
