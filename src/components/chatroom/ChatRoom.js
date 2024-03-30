@@ -186,8 +186,8 @@ function ChatRoom (props) {
         
             {props.chatRoom && 
               <>
-                <div className="flex flex-col h-full space-y-2">
-                  <div class="flex flex-row mt-2 pl-4 gap-x-4 items-center h-[8%]">
+                <div className="flex flex-col place-content-between h-full">
+                  <div class=" bg-white flex flex-row rounded-lg pl-4 gap-x-4 items-center h-[9%]">
                           <img className=" w-10 h-10" src={props.chatRoom.avatar ? authServerEndpoint + props.chatRoom.avatar : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
                           <div>
                             <div className="">{props.chatRoom.name}</div>
@@ -197,23 +197,24 @@ function ChatRoom (props) {
                           </div>
 
                   </div>
+                  <div className="bg-white flex flex-col rounded-md h-[90%]">
+                    <div className="h-[90%]" id="chat-log">
 
-                  <div className=" border-2 border-slate-200 rounded-lg bg-slate-200 h-[80%]" id="chat-log">
+                      {
+                        chatLog.map((message) => (
+                            message
+                        ))
+                      }
+                    </div>
 
-                    {
-                      chatLog.map((message) => (
-                          message
-                      ))
-                    }
-                  </div>
-
-                  <div className=" flex items-center  h-[7%]">
-                      <form className=" flex flex-row items-center place-content-center w-full" onSubmit={handleMessageSubmit}>
-                        <input className=" p-4 h-8 w-[55%] mr-6 border-2 border-slate-600 rounded-xl" id="message" type="text" onKeyDown={handleKeyPress} placeholder='type your messsage'/>
-                        <button className="w-20 h-8 rounded-lg hover:bg-slate-500 bg-slate-700 text-white" type="submit">Send</button>
-                      </form>
-                  </div>
-                </div> 
+                    <div className="flex items-center   h-[10%]">
+                        <form className=" flex flex-row items-center place-content-center w-full" onSubmit={handleMessageSubmit}>
+                          <input className=" p-4 h-8 w-[55%] mr-6 border-2 border-slate-600 rounded-md" id="message" type="text" onKeyDown={handleKeyPress} placeholder='type your messsage'/>
+                          <button className="w-20 h-8 rounded-lg hover:bg-slate-500 bg-slate-700 text-white" type="submit">Send</button>
+                        </form>
+                    </div>
+                  </div> 
+                </div>
               </>
           }
         </>
