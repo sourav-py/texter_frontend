@@ -174,7 +174,7 @@ function ChatRoom (props) {
     <>
 
             {!props.chatRoom && 
-              <div className="h-full flex flex-col items-center justify-center">
+              <div className="h-full bg-white rounded-lg flex flex-col items-center justify-center">
                 <div className="text-9xl mb-6 text-slate-600">
                   <FontAwesomeIcon icon={faPaperPlane}/>                  
                 </div>
