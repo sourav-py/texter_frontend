@@ -163,7 +163,7 @@ function Sidebar (props) {
                     </div>
                 </div>
             </div>
-            <div className="bg-white rounded-lg h-[89%]">
+            <div className="bg-white rounded-lg h-[90%]">
                 <div className=" mt-2 mb-2 flex items-end">
                     <div className="text-lg text-slate-600 pl-3">
                         Chats

@@ -139,10 +139,10 @@ function Main () {
         return (
             <div className="h-[100vh] w-[100vw] flex justify-center items-center bg-slate-300">
                 <div className="h-[92vh] w-[85vw] flex flex-row place-content-around">
-                    <div className="flex flex-col h-full  place-content-around w-[22%] ">
+                    <div className="flex flex-col  h-full place-content-between w-[22%] ">
                         <Sidebar currentChatRoom = {currentChatRoom} setCurrentChatRoom = {setCurrentChatRoom} userProfile={userProfile} setUserProfile = {setUserProfile} lastMessageTimeStamp = {lastMessageTimestamp} setLastMessageTimestamp = {setLastMessageTimestamp}/>
                     </div>
-                    <div className=" h-full bg-white rounded-lg w-[76%]">
+                    <div className=" h-full rounded-lg w-[77%]">
                         <ChatRoom chatRoomId = {currentChatRoomId} chatRoom={currentChatRoom} userId = {userProfile.id} handleLastMessageTimestampUpdate = {handleLastMessageTimestampUpdate}/> 
                     </div>
                 </div> 
