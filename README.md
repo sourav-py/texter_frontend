@@ -1,58 +1,34 @@
-# texter: front-end
-
-### Index
-- [Introduction](https://github.com/sourav-py/texter_frontend/tree/main?tab=readme-ov-file#front-end-codebase-for-texter-a-web-socket-based-chat-application)
-- [Features](https://github.com/sourav-py/texter_frontend/tree/main?tab=readme-ov-file#features)
-- [Screenshots](https://github.com/sourav-py/texter_frontend/tree/main?tab=readme-ov-file#screenshots)
-- [Folder Structure](https://github.com/sourav-py/texter_frontend/tree/main?tab=readme-ov-file#folder-structure)
-- [Setup](https://github.com/sourav-py/texter_frontend/tree/main?tab=readme-ov-file#setup)
-- [Development Guidelines](https://github.com/sourav-py/texter_frontend/tree/main?tab=readme-ov-file#development-guidelines)
-- [Issues](https://github.com/sourav-py/texter_frontend/tree/main?tab=readme-ov-file#issues)
-- [Future Developments](https://github.com/sourav-py/texter_frontend/tree/main?tab=readme-ov-file#future-developments)
-  
-#### Front-end codebase for 'texter', a web socket based chat application.
-This repository is a `react` project to develop UI for the texter application. This application interacts with the back-end ([texter_backend](https://github.com/sourav-py/texter_backend)) to provide seamless messaging experience. 
+<h1 align="center">
+texter
+</h1>
 
 <p align="center">
   <img src="https://github.com/sourav-py/texter_frontend/blob/main/screenshots/canva-doc.png" width="100%">
 </p>
 
+## 📃 Introduction
+This repository is a `react` project to develop UI for the texter application. This application interacts with the back-end ([texter_backend](https://github.com/sourav-py/texter_backend)) to provide seamless messaging experience. <br>
+The motive of this repository to provide a boiler plate Chat application code to developers to modify or enhance as per their requirements.
 
-#### Features:
+## ⚙️  Features
 - SMS otp based authentication 
 - Direct Messaging
 - User activity status (online/last seen at <timestamp>)
 - Typing indicator (The user that you are currently chatting with is typing a message).
 
-
-#### Folder structure:
-* src/
-  * components/
-    * chatroom/
-      - ChatRoom.js
-      - Message.js
-    * login
-      - EnterOTP.js
-      - InputPhone.js
-    * Sidebar
-      - AddContact.js
-      - ChatRoomListItem.js
-      - Contact.js
-      - ContactPreview.js
-      - Sidebar.js
-      - UpdateProfile.js
-    - Main.js
       
-#### Setup
+## 📦 Setup
 1. Clone the repository.
-2. Install dependencies using npm install.
-3. Start the development server with npm start.
+2. Checkout to the __development__ branch `git checkout development`.
+3. Install dependencies using `npm install`.
+4. Start the development server with `npm start`.
    
-#### Development guidelines
+## ✔️ Contribution guidelines
 
-#### Issues
+## 🔧 Issues
 - [text styling](https://github.com/sourav-py/texter_frontend/issues/17)
-#### Future developments
+  
+## 🔜 Future developments
 - [Message encryption](https://github.com/sourav-py/texter_frontend/issues/19)
 - [Animations](https://github.com/sourav-py/texter_frontend/issues/18)
 
