@@ -13,32 +13,17 @@
 #### Front-end codebase for 'texter', a web socket based chat application.
 This repository is a `react` project to develop UI for the texter application. This application interacts with the back-end ([texter_backend](https://github.com/sourav-py/texter_backend)) to provide seamless messaging experience. 
 
+<p align="center">
+  <img src="https://github.com/sourav-py/texter_frontend/blob/main/screenshots/canva-doc.png" width="100%">
+</p>
+
+
 #### Features:
 - SMS otp based authentication 
 - Direct Messaging
 - User activity status (online/last seen at <timestamp>)
 - Typing indicator (The user that you are currently chatting with is typing a message).
 
-#### Screenshots
-<p align="center">Phone number input</p>
-<p align="center">
-  <img src="https://github.com/sourav-py/texter_frontend/blob/main/screenshots/texter-phone-input.png" width="90%">
-</p>
-
-<p align="center">OTP based verification</p>
-<p align="center">
-  <img src="https://github.com/sourav-py/texter_frontend/blob/main/screenshots/texter-otp-input.png" width="90%">
-</p>
-
-<p align="center" >Landing page</p>
-<p align="center">
-  <img src="https://github.com/sourav-py/texter_frontend/blob/main/screenshots/texter-home.png" width="90%">
-</p>
-
-<p align="center">Chatroom</p>
-<p align="center">
-  <img src="https://github.com/sourav-py/texter_frontend/blob/main/screenshots/texter-chat.png" width="90%">
-</p>
 
 #### Folder structure:
 * src/
