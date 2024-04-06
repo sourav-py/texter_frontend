@@ -7,8 +7,7 @@ texter
 </p>
 
 ## 📃 Introduction
-This repository is a `react` project to develop UI for the texter application. This application interacts with the back-end ([texter_backend](https://github.com/sourav-py/texter_backend)) to provide seamless messaging experience. <br>
-The motive of this repository to provide a boiler plate Chat application code to developers to modify or enhance as per their requirements.
+This repository hosts a React project aimed at facilitating the development of the user interface (UI) for the Texter application. Designed to seamlessly interact with the corresponding [backend](https://github.com/sourav-py/texter_backend) to provide seamless messaging experience., this project serves as a foundational framework for building a robust and feature-rich chat application.
 
 ## ⚙️  Features
 - SMS otp based authentication 
