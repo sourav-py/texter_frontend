@@ -139,17 +139,8 @@ function Sidebar (props) {
             }
         )
     }
-
     
-   
-   if(chatRoomsList == null){
-    return (
-        <div>
-            Loading....
-        </div>
-    )
-   }
-   else{
+
     return (
         <>
             <div className=" bg-white rounded-lg flex flex-row space-x-10 pl-4 items-center  h-[9%] overflow-hidden">
@@ -170,6 +161,8 @@ function Sidebar (props) {
                     </div>
                 </div>
                 <div className="p-2 overflow-y-scroll no-scrollbar">
+
+                { chatRoomsList != null && 
                     <div className=" flex flex-col gap-1">
                         {
                             chatRoomsList.map((chatroom,index) => (
@@ -182,6 +175,24 @@ function Sidebar (props) {
                             <FontAwesomeIcon  onClick={showAddContactModal} icon={faPlusCircle}/>
                         </div>
                     </div>
+
+                }
+                {
+                    chatRoomsList == null && 
+                    <div className="animate-pulse flex flex-col gap-1">
+                        <div className= "">
+                            <div className="h-10 w-10 flex-none bg-slate-200 rounded-full"></div>
+                            <div class="min-w-0 flex-auto">
+                                <p class="h-2 bg-slate-200 rounded"></p>
+                                <p class="h-1 bg-slate-200 rounded"></p>
+                            </div> 
+                        </div>
+
+                        <div className="flex flex-row place-content-end p-4 text-3xl text-slate-600  sticky bottom-0">
+                            <FontAwesomeIcon  onClick={showAddContactModal} icon={faPlusCircle}/>
+                        </div>
+                    </div> 
+                }
                 </div>
             </div>
             <div className={addContactModalDisplay === "block" ? "fixed inset-0 bg-slate-300 opacity-40" : "hidden"} onClick={hideAddContactModal} ></div>
@@ -197,7 +208,6 @@ function Sidebar (props) {
             </div>
         </>
     ) 
-    }
 }
 
 export default Sidebar;
