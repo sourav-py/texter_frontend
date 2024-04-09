@@ -210,7 +210,7 @@ function ChatRoom (props) {
                     <div className="flex items-center   h-[10%]">
                         <form className=" flex flex-row items-center place-content-center w-full" onSubmit={handleMessageSubmit}>
                           <input className=" p-4 h-8 w-[55%] mr-6 border-2 border-slate-600 rounded-md" id="message" type="text" onKeyDown={handleKeyPress} placeholder='type your messsage'/>
-                          <button className="w-20 h-8 rounded-lg hover:bg-slate-500 bg-slate-700 text-white" type="submit">Send</button>
+                          <button className="w-20 h-8 rounded-lg hover:bg-sky-700 bg-sky-900 text-white" type="submit">Send</button>
                         </form>
                     </div>
                   </div> 
