@@ -3,7 +3,7 @@ texter
 </h1>
 
 <p align="center">
-  <img src="https://github.com/sourav-py/texter_frontend/blob/main/screenshots/canva-doc.png" width="100%">
+  <img src="https://github.com/sourav-py/texter_frontend/blob/main/screenshots/canva-doc-2.png" width="100%">
 </p>
 
 ## 📃 Introduction
